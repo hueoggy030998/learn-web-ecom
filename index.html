@@ -3,46 +3,87 @@
 
 <head>
     <title>Hekto Product</title>
-    <!-- <link rel="stylesheet" href="mystyle.css"> -->
+    <link rel="stylesheet" href="./styles/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="header">
-        <img src="./file icon/email.png" alt="email">
-        <a href="mailto:mhhasanul@gmail.com">mhhasanul@gmail.com</a>
-        <img src="./file icon/phone.png" alt="phone">
-        <span>(12345)67890</span>
-        <a href="./login">
-            <span>Login</span>
-            <img src="./file icon/login.png" alt="login">
-        </a>
-        <a href="./wishlist">
-            <span>Wishlist</span>
-            <img src="./file icon/wishlist.png" alt="wishlist">
-        </a>
-        <img src="./file icon/cart.png" alt="cart">
-    </div>
-    <div>
-        <span>Hekto</span>
-        <ul class="menu">
-            <li><a href="./home">Home</a></li>
-            <li><a href="./pages">Pages</a></li>
-            <li><a href="./products">Products</a></li>
-            <li><a href="./blog">Blog</a></li>
-            <li><a href="./shop">Shop</a></li>
-            <li><a href="./contact">Contact</a></li>
-        </ul>
-        <div>
-            <input type="text">
-            <button>
-                <img src="./file icon/search.png" alt="search">
-            </button>
+    <header class="header-container">
+        <div class="header w-1168 flex justify-between">
+            <div class="flex">
+                <div class="header-email flex gap-10">
+                    <img src="./file icon/email.png" alt="email">
+                    <a href="mailto:mhhasanul@gmail.com">mhhasanul@gmail.com</a>
+                </div>
+                <div class="header-phone flex gap-10">
+                    <img src="./file icon/phone.png" alt="phone">
+                    <span>(12345)67890</span>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="header-login flex">
+                    <a href="./login">Login</a>
+                    <img src="./file icon/login.png" alt="login">
+                </div>
+                <div class="header-wishlist flex">
+                    <a href="./wishlist">Wishlist</a>
+                    <img src="./file icon/wishlist.png" alt="wishlist">
+                </div>
+                <div class="header-cart">
+                    <img src="./file icon/cart.png" alt="cart">
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="menu-container">
+        <div class="w-1168 flex menu">
+            <span class="brand-name">Hekto</span>
+            <ul class="flex list-menu">
+                <li><a href="./home">Home</a></li>
+                <li><a href="./pages">Pages</a></li>
+                <li><a href="./products">Products</a></li>
+                <li><a href="./blog">Blog</a></li>
+                <li><a href="./shop">Shop</a></li>
+                <li><a href="./contact">Contact</a></li>
+            </ul>
+            <div class="search-product flex justify-between">
+                <input type="text" class="search-input">
+                <button class="search-button">
+                    <img src="./file icon/search.png" alt="search">
+                </button>
+            </div>
         </div>
     </div>
 
-    <div class="banner">Banner test</div>
+    <div class="banner-container">
+        <img class="alarm" src="./file icon/alarm.png" alt="alarm">
+        <div class="w-1168 flex-column justify-center banner">
+            <span class="des-1">Best Furniture For Your Castle....</span>
+            <span class="des-2">New Furniture Collection Trends in 2020</span>
+            <span class="des-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in
+                phasellus non in
+                justo.</span>
+            <button class="shop-now-btn">Shop Now</button>
+        </div>
+        <img class="sofa" src="./file icon/sofa.png" alt="sofa">
+    </div>
+    <div class="featured-container">
+        <span class="title">Featured Products</span>
+        <div id="featured-products" class="w-1168 featured-products"></div>
+        <div id="featured-footer" class="w-1168 featured-footer"></div>
+    </div>
+    </div>
 
-    <script src="./main.js"></script>
+
+
+    <script src="./main/api.js"></script>
+    <script src="./main/home.js"></script>
 
 </body>
 

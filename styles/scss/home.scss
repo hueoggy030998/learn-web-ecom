@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.w-1168 {
+    width: 1168px;
+    margin: auto;
+}
+
+.primary-color {
+    color: #fb2e86;
+}
+
+.bg-primary-color {
+    background-color: #fb2e86;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* header */
+.header-container {
+    background-color: #7e33e0;
+}
+
+.header {
+    height: 44px;
+    color: #f1f1f1;
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header-email {
+    margin-right: 48px;
+}
+
+.header-login {
+    margin-right: 16px;
+}
+
+.header-wishlist {
+    margin-right: 26px;
+}
+
+/* menu */
+.menu-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.menu {
+    gap: 0;
+}
+
+.brand-name {
+    color: #0d0e43;
+    font-family: "Josefin Sans";
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-right: 88px;
+}
+
+.list-menu {
+    list-style-type: none;
+    padding: 0;
+    color: #0d0e43;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    gap: 35px;
+    margin-right: 227px;
+}
+
+.search-product {
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Lato;
+    border: solid 2px #e7e6ef;
+    border-right: none;
+    margin: 0;
+}
+
+.search-button {
+    width: 50px;
+    height: 40px;
+    border: none;
+    background-color: #fb2e86;
+}
+
+/* banner */
+.banner-container {
+    height: 500px;
+    background-color: #f2f0ff;
+    position: relative;
+}
+
+.alarm {
+    position: absolute;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+}
+
+.banner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.des-1 {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fb2e86;
+    margin-bottom: 12px;
+}
+
+.des-2 {
+    width: 700px;
+    color: #000;
+    font-family: "Josefin Sans";
+    font-size: 53px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 132%; /* 69.96px */
+    letter-spacing: 0.795px;
+    margin-bottom: 12px;
+}
+
+.des-3 {
+    width: 700px;
+    color: var(--sub-text-color, #8a8fb9);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 175% */
+    margin-bottom: 27px;
+}
+
+.shop-now-btn {
+    width: 163px;
+    height: 50px;
+    background-color: #fb2e86;
+    color: #fff;
+    font-family: "Josefin Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.34px;
+    border: none;
+    border-radius: 2px;
+}
+
+.sofa {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.title {
+    color: #1a0b5b;
+    font-family: "Josefin Sans";
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.featured-container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.featured-products {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 29px;
+}
+
+.product {
+    width: 270px;
+    height: 361px;
+    flex-shrink: 0;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.product-image {
+    width: 270px;
+    height: 236px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #f6f7fb;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.product-name {
+    color: var(--pink, #fb2e86);
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.product-code {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.product-price {
+    color: var(--Text, #151875);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.featured-footer {
+    height: 4px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 4px;
+    width: 16px;
+    margin: 0 2px;
+    background-color: #febad7;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.dot-active {
+    background-color: #fb2e86;
+}
