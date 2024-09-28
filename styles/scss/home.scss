@@ -215,11 +215,6 @@ a {
     line-height: normal;
 }
 
-.featured-container {
-    margin-top: 100px;
-    text-align: center;
-}
-
 .featured-products {
     margin-top: 48px;
     margin-bottom: 48px;
@@ -227,7 +222,7 @@ a {
     justify-content: space-between;
 }
 
-.product {
+.featured-product {
     color: #fff !important;
     width: 270px;
     height: 361px;
@@ -238,22 +233,62 @@ a {
     cursor: pointer;
 }
 
-.product-hover {
+.featured-product:hover {
     background: #2f1ac4;
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+
+    .featured-product-name {
+        color: #fff;
+    }
+    .featured-product-code {
+        color: #fff;
+    }
+
+    .featured-product-price {
+        color: #fff;
+    }
+
+    .featured-product-icon {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        top: 11px;
+        left: 11px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .featured-product-view-detail-btn {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        bottom: 9px;
+        right: 50%;
+        transform: translateX(50%);
+        cursor: pointer;
+
+        width: 94px;
+        height: 29px;
+        flex-shrink: 0;
+        border: none;
+        border-radius: 2px;
+        background: #08d15f;
+        color: #fff;
+        font-family: "Josefin Sans";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
 }
 
-.product-info-hover {
-    color: #fff !important;
-}
-
-.product-image {
+.featured-product-image {
     width: 270px;
     height: 236px;
     position: relative;
 }
 
-.product-thumbnail {
+.featured-product-thumbnail {
     width: 270px;
     height: 236px;
     object-fit: contain;
@@ -261,17 +296,7 @@ a {
     background: #f6f7fb;
 }
 
-.product-icon {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    top: 11px;
-    left: 11px;
-    position: absolute;
-    z-index: 2;
-}
-
-.display-none {
+.featured-product-icon {
     display: none;
 }
 
@@ -290,29 +315,11 @@ a {
     height: 17px;
 }
 
-.product-view-detail-btn {
-    position: absolute;
-    z-index: 2;
-    bottom: 9px;
-    right: 50%;
-    transform: translateX(50%);
-    cursor: pointer;
-
-    width: 94px;
-    height: 29px;
-    flex-shrink: 0;
-    border: none;
-    border-radius: 2px;
-    background: #08d15f;
-    color: #fff;
-    font-family: "Josefin Sans";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+.featured-product-view-detail-btn {
+    display: none;
 }
 
-.product-info {
+.featured-product-info {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -320,7 +327,7 @@ a {
     align-items: center;
 }
 
-.product-name {
+.featured-product-name {
     color: var(--pink, #fb2e86);
     font-family: Lato;
     font-size: 18px;
@@ -329,7 +336,7 @@ a {
     line-height: normal;
 }
 
-.product-code {
+.featured-product-code {
     color: var(--Text, #151875);
     font-family: "Josefin Sans";
     font-size: 14px;
@@ -338,7 +345,7 @@ a {
     line-height: normal;
 }
 
-.product-price {
+.featured-product-price {
     color: var(--Text, #151875);
     font-family: Lato;
     font-size: 14px;
@@ -365,4 +372,180 @@ a {
 
 .dot-active {
     background-color: #fb2e86;
+}
+
+.home-container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.latest-menu {
+    margin-top: 19px;
+    margin-bottom: 58px;
+    display: flex;
+    justify-content: center;
+    gap: 58px;
+}
+
+.latest-menu-item {
+    color: var(--Text, #151875);
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.latest-menu-item-active {
+    color: var(--pink, #fb2e86);
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 1px solid #fb2e86;
+}
+
+.parent {
+    &:hover {
+        .child {
+            display: block;
+        }
+    }
+    .child {
+        display: none;
+    }
+}
+
+.latest-products {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 50px;
+}
+
+.latest-product {
+    color: #fff !important;
+    width: 360px;
+    height: 306px;
+    flex-shrink: 0;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.latest-product:hover {
+    .latest-product-icon {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        top: 146px;
+        left: 15px;
+    }
+}
+
+.latest-product-image {
+    position: relative;
+    width: 360px;
+    height: 270px;
+}
+
+.latest-product-thumbnail {
+    width: 360px;
+    height: 270px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #f6f7fb;
+}
+
+.product-icon-sale {
+    position: absolute;
+    z-index: 2;
+    top: 25px;
+    left: 18px;
+    width: 85px;
+    height: 57px;
+}
+
+.latest-product-icon {
+    display: none;
+}
+
+.latest-product-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+.latest-product-name {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.latest-product-price-sale {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.latest-product-price {
+    color: #fb2448;
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: line-through;
+}
+
+.shopex-item {
+    margin-top: 55px;
+    width: 270px;
+    height: 320px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+    /* shadow */
+    box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+}
+
+.shopex-icon {
+    width: 65px;
+    height: 65px;
+}
+
+.shopex-label {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.shopex-desc {
+    color: rgba(26, 11, 91, 0.3);
+    text-align: center;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25.6px; /* 160% */
 }

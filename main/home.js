@@ -61,8 +61,7 @@ async function showFeaturedProductsSlide() {
     }
     listDots[slideFeaturedIndex-1].classList.add("dot-active");
 
-    console.log("slideFeaturedIndex: ", slideFeaturedIndex);
-    setTimeout(showFeaturedProductsSlide, 3000);
+    // setTimeout(showFeaturedProductsSlide, 3000);
 }
 
 function showFeaturedPage(listProducts){
@@ -79,82 +78,106 @@ function showFeaturedPage(listProducts){
 
 function createProductItem(product){
     const productItem = document.createElement("div");
-    productItem.classList.add("product");
-
-    const productItemImage = document.createElement("div");
-    productItemImage.classList.add("product-image");
-    // productItemImage.style.backgroundImage=`url(${product.thumbnail})`;
-
-    const productItemThumbnail = document.createElement("img");
-    productItemThumbnail.classList.add("product-thumbnail");
-    productItemThumbnail.src=product.thumbnail;
-
-    const productItemIcon = document.createElement("div");
-    productItemIcon.classList.add("product-icon", "display-none");
-
-    const productItemIconCart = document.createElement("img");
-    productItemIconCart.classList.add("product-icon-cart");
-    productItemIconCart.src = "/file icon/add-cart-product.png";
-
-    const productItemIconHeart = document.createElement("img");
-    productItemIconHeart.classList.add("product-icon-heart");
-    productItemIconHeart.src = "/file icon/heart-product.png";
-
-    const productItemIconSearch = document.createElement("img");
-    productItemIconSearch.classList.add("product-icon-search");
-    productItemIconSearch.src = "/file icon/search-product.png";
-
-    const productItemButtonDetail = document.createElement("button");
-    productItemButtonDetail.classList.add("product-view-detail-btn", "display-none");
-    productItemButtonDetail.textContent="View Details";
-
-    const productItemInfo = document.createElement("div");
-    productItemInfo.classList.add("product-info");
-
-    const productItemName = document.createElement("span");
-    productItemName.classList.add("product-name");
-    productItemName.textContent = product.title;
-    const productItemCode = document.createElement("span");
-    productItemCode.classList.add("product-code");
-    productItemCode.textContent = `Code - ${product.sku}`;
-    const productItemPrice = document.createElement("span");
-    productItemPrice.classList.add("product-price");
-    productItemPrice.textContent = `$${product.price.toLocaleString('en-US')}`;
-
-    productItem.appendChild(productItemImage);
-    productItemImage.appendChild(productItemThumbnail);
-    productItemImage.appendChild(productItemIcon);
-    productItemImage.appendChild(productItemButtonDetail);
-    productItem.appendChild(productItemInfo);
-    
-    productItemInfo.appendChild(productItemName);
-    productItemInfo.appendChild(productItemCode);
-    productItemInfo.appendChild(productItemPrice);
-
-    productItemIcon.appendChild(productItemIconCart);
-    productItemIcon.appendChild(productItemIconHeart);
-    productItemIcon.appendChild(productItemIconSearch);
-
-    productItem.addEventListener("mouseenter", function (){
-        productItem.classList.add("product-hover");
-        productItemIcon.classList.remove("display-none");
-        productItemButtonDetail.classList.remove("display-none");
-        productItemName.classList.add("product-info-hover");
-        productItemCode.classList.add("product-info-hover");
-        productItemPrice.classList.add("product-info-hover");
-    })       
-    
-    productItem.addEventListener("mouseleave", function (){
-        productItem.classList.remove("product-hover");
-        productItemIcon.classList.add("display-none");
-        productItemButtonDetail.classList.add("display-none");
-        productItemName.classList.remove("product-info-hover");
-        productItemCode.classList.remove("product-info-hover");
-        productItemPrice.classList.remove("product-info-hover");
-    }) 
-
+    productItem.classList.add("featured-product");
+    productItem.innerHTML =
+    `<div class="featured-product-image">
+        <img class="featured-product-thumbnail" src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png">
+        <div class="featured-product-icon">
+            <img class="product-icon-cart" src="/file icon/add-cart-product.png">
+            <img class="product-icon-heart" src="/file icon/heart-product.png">
+            <img class="product-icon-search" src="/file icon/search-product.png">
+        </div>
+        <button class="featured-product-view-detail-btn">View Details</button>
+    </div>
+    <div class="featured-product-info">
+        <span class="featured-product-name">Essence Mascara Lash Princess</span>
+        <span class="featured-product-code">Code - RCH45Q1A</span>
+        <span class="featured-product-price">$9.99</span>
+    </div>`;
     return productItem;        
 }
+
+
+//show Latest Product
+const latestMenu = document.getElementById("latest-menu");
+const latestProducts = document.getElementById("latest-products");
+showLatestProducts();
+
+function showLatestProducts(){
+    showListCategoriesMenu();
+    showListLatestProduct();
+}
+
+async function showListCategoriesMenu(){
+    const response = await fetch(apiGetAllProductCategories);
+    const data = await response.json();
+    createLatestProductsTab(data.slice(0,4));
+}
+
+async function createLatestProductsTab(listCategories){  
+    for(let i=0; i<listCategories.length; i++){
+        const tabItem = document.createElement("div");
+        tabItem.classList.add("latest-menu-item");
+        if(i===0){
+            tabItem.classList.add("latest-menu-item-active");
+            const response = await fetch(listCategories[i].url);
+            const data = await response.json();
+            const listProducts = data.products;
+            showListLatestProduct(listProducts);
+        }
+        tabItem.textContent=listCategories[i].name;
+        latestMenu.appendChild(tabItem);
+
+        tabItem.addEventListener("click", async function(){
+            // inactive cac tab cu
+            const tabActive = latestMenu.querySelector(".latest-menu-item-active");
+            console.log("tabActive: ", tabActive);
+            tabActive.classList.remove("latest-menu-item-active");
+            // active tab vua chon
+            tabItem.classList.add("latest-menu-item-active");
+            //show list product
+            const response = await fetch(listCategories[i].url);
+            const data = await response.json();
+            const listProducts = data.products.slice(0,6);
+            showListLatestProduct(listProducts);
+        })
+    }
+    
+}
+
+function showListLatestProduct(listProducts){
+    latestProducts.innerHTML="";
+    for(let i=0; i<listProducts.length; i++){
+        latestProducts.appendChild(createLatestProductItem(listProducts[i]));
+    }
+
+}
+
+function createLatestProductItem(product){
+    const productItem = document.createElement("div");
+    productItem.classList.add("latest-product");
+    productItem.innerHTML = 
+    `<div class="latest-product-image">
+        <img class="latest-product-thumbnail" src=${product.thumbnail}>
+        <img class="product-icon-sale child" src="/file icon/sale-product.png">
+        <div class="latest-product-icon">
+            <img class="product-icon-cart" src="/file icon/add-cart-product.png">
+            <img class="product-icon-heart" src="/file icon/heart-product.png">
+            <img class="product-icon-search" src="/file icon/search-product.png">
+        </div>
+    </div>
+    <div class="latest-product-info">
+        <span class="latest-product-name">${product.title}</span>
+        <div>
+            <span class="latest-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
+            <span class="latest-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
+        </div>       
+    </div>`;
+    return productItem;
+
+
+}
+
 
 
 
