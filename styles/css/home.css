@@ -224,10 +224,11 @@ a {
   margin-top: 48px;
   margin-bottom: 48px;
   display: flex;
-  gap: 29px;
+  justify-content: space-between;
 }
 
 .product {
+  color: #fff !important;
   width: 270px;
   height: 361px;
   flex-shrink: 0;
@@ -237,13 +238,78 @@ a {
   cursor: pointer;
 }
 
+.product-hover {
+  background: #2f1ac4;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+}
+
+.product-info-hover {
+  color: #fff !important;
+}
+
 .product-image {
+  width: 270px;
+  height: 236px;
+  position: relative;
+}
+
+.product-thumbnail {
   width: 270px;
   height: 236px;
   -o-object-fit: contain;
      object-fit: contain;
   flex-shrink: 0;
   background: #f6f7fb;
+}
+
+.product-icon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  top: 11px;
+  left: 11px;
+  position: absolute;
+  z-index: 2;
+}
+
+.display-none {
+  display: none;
+}
+
+.product-icon-cart {
+  width: 30px;
+  height: 30px;
+}
+
+.product-icon-heart {
+  width: 17px;
+  height: 17px;
+}
+
+.product-icon-search {
+  width: 17px;
+  height: 17px;
+}
+
+.product-view-detail-btn {
+  position: absolute;
+  z-index: 2;
+  bottom: 9px;
+  right: 50%;
+  transform: translateX(50%);
+  cursor: pointer;
+  width: 94px;
+  height: 29px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 2px;
+  background: #08d15f;
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .product-info {
@@ -283,16 +349,18 @@ a {
 
 .featured-footer {
   height: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
 .dot {
   cursor: pointer;
-  height: 4px;
   width: 16px;
-  margin: 0 2px;
+  height: 4px;
   background-color: #febad7;
   border-radius: 10px;
-  display: inline-block;
 }
 
 .dot-active {
