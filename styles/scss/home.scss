@@ -510,6 +510,11 @@ a {
     text-decoration: line-through;
 }
 
+.shopex-content {
+    display: flex;
+    justify-content: space-between;
+}
+
 .shopex-item {
     margin-top: 55px;
     width: 270px;
@@ -520,6 +525,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 
     background: #fff;
     /* shadow */
@@ -548,4 +554,88 @@ a {
     font-style: normal;
     font-weight: 700;
     line-height: 25.6px; /* 160% */
+}
+
+.banner-container-2 {
+    background-color: #f1f0ff;
+    height: 450px;
+    margin-top: 100px;
+}
+
+.banner-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sofa-2 {
+    width: 450px;
+    height: 450px;
+}
+
+.banner-2-title {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 132%; /* 46.2px */
+    letter-spacing: 0.525px;
+
+    margin-bottom: 29px;
+}
+
+.banner-2-des {
+    color: #acabc3;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 132%; /* 21.12px */
+    letter-spacing: 0.24px;
+
+    margin-top: 29px;
+}
+
+.banner-2-add {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-top: 38px;
+}
+
+.banner-2-button {
+    width: 157px;
+    height: 45px;
+    flex-shrink: 0;
+    border: none;
+    background: var(--Accent, #fb2e86);
+
+    color: #fff;
+    font-family: "Josefin Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.34px;
+}
+
+.banner-2-product-tilte {
+    color: var(--Text, #151875);
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.28px;
+}
+
+.banner-2-product-price {
+    color: var(--Text, #151875);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: block;
 }
