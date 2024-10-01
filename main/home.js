@@ -141,7 +141,7 @@ function createLatestProductItem(product){
     <div class="latest-product-info">
         <span class="latest-product-name text-ellipsis">${product.title}</span>
         <div>
-            <span class="latest-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
+            <span class="latest-product-price-sale">$${parseFloat(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
             <span class="latest-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
         </div>       
     </div>`;
@@ -168,7 +168,7 @@ function createTrendingProductItem(product){
     <div class="trending-product-info">
         <span class="trending-product-name text-ellipsis">${product.title}</span>
         <div>
-            <span class="trending-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
+            <span class="trending-product-price-sale">$${parseFloat(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
             <span class="trending-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
         </div>       
     </div>`;
@@ -246,7 +246,7 @@ function createTopCategoriesProductItem(product){
     
     <div class="top-category-product-info">
         <span class="top-category-product-name text-ellipsis">${product.title}</span>
-        <span class="top-category-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>     
+        <span class="top-category-product-price">$${product.price.toLocaleString("en-US")}</span>     
     </div>`;
     return productItem;
 }
@@ -262,5 +262,4 @@ function getNewRandomArray(arr, x){
     }
     return result;  
 }
-
 

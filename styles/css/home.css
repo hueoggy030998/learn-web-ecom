@@ -691,7 +691,7 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-decoration-line: strikethrough;
+  text-decoration-line: line-through;
 }
 
 .top-category-product {
