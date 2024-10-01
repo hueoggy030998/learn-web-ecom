@@ -30,10 +30,8 @@ async function showFeaturedProducts(){
             dotElement.classList.add("dot-active");
         }
         dotElement.addEventListener("click", async function (){
-            const listDots = featuredFooter.getElementsByClassName("dot");
-            for (const dot of listDots) {
-                dot.classList.remove("dot-active");
-            }
+            const activeDot = featuredFooter.querySelector(".dot-active");
+            activeDot.classList.remove("dot-active");
             dotElement.classList.add("dot-active");
 
             const listProducts = listFeaturedProducts.slice(i*4,i*4+4);
@@ -78,7 +76,7 @@ function createFeaturedProductItem(product){
         <button class="featured-product-view-detail-btn">View Details</button>
     </div>
     <div class="featured-product-info">
-        <span class="featured-product-name">${product.title}</span>
+        <span class="featured-product-name text-ellipsis">${product.title}</span>
         <span class="featured-product-code">Code - ${product.sku}</span>
         <span class="featured-product-price">$${product.price}</span>
     </div>`;
@@ -114,7 +112,6 @@ async function createLatestProductsTab(listCategories){
         tabItem.addEventListener("click", async function(){
             // inactive cac tab cu
             const tabActive = latestMenu.querySelector(".latest-menu-item-active");
-            console.log("tabActive: ", tabActive);
             tabActive.classList.remove("latest-menu-item-active");
             // active tab vua chon
             tabItem.classList.add("latest-menu-item-active");
@@ -142,7 +139,7 @@ function createLatestProductItem(product){
         </div>
     </div>
     <div class="latest-product-info">
-        <span class="latest-product-name">${product.title}</span>
+        <span class="latest-product-name text-ellipsis">${product.title}</span>
         <div>
             <span class="latest-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
             <span class="latest-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
@@ -157,9 +154,9 @@ showTrendingProducts();
 
 async function showTrendingProducts () {
     // lay danh sach trending products
-    const response = await fetch(apiGetAllProducts +`?limit=4&skip=0`);
+    const response = await fetch(apiGetAllProducts +`?limit=100&skip=0`);
     const data = await response.json();
-    const listTrendingProducts = data.products;
+    const listTrendingProducts = getNewRandomArray(data.products, 4) ;
     showListProducts(trendingProducts, listTrendingProducts, createTrendingProductItem);
 }
 
@@ -169,7 +166,7 @@ function createTrendingProductItem(product){
     productItem.innerHTML = 
     `<img class="trending-product-thumbnail" src=${product.thumbnail}>
     <div class="trending-product-info">
-        <span class="trending-product-name">${product.title}</span>
+        <span class="trending-product-name text-ellipsis">${product.title}</span>
         <div>
             <span class="trending-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
             <span class="trending-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
@@ -199,16 +196,16 @@ async function showTopCategories() {
     // lay danh sach top categories
     const response = await fetch(apiGetAllProductCategories);
     const data = await response.json();
-    const response1 = await fetch(data[0].url);
-    const data1 = await response1.json();
-    const response2 = await fetch(data[1].url);
-    const data2 = await response2.json();
-    const listTopCategoriesProducts = [...data1.products, ...data2.products];
-    console.log(listTopCategoriesProducts);
+    const listCategories = getNewRandomArray(data, 2);
+    let listTopCategoriesProducts = [];
+    for (const element of listCategories) {
+        const response = await fetch(element.url);
+        const data = await response.json();
+        listTopCategoriesProducts = listTopCategoriesProducts.concat(data.products);
+    }
 
     const numberPerPage = 4;
     const numOfTopPage = Math.floor(listTopCategoriesProducts.length / numberPerPage) + 1;
-    console.log("numOfTopPage: ", numOfTopPage);
 
     // show footer
     for(let i=0; i<numOfTopPage; i++){
@@ -221,10 +218,8 @@ async function showTopCategories() {
             showListProducts(topCategories, listTopCategoriesProducts.slice(i*4,i*4+4), createTopCategoriesProductItem);
         }
         dotElement.addEventListener("click", async function (){
-            const listDots = topCategoriesFooter.getElementsByClassName("top-dot-active");
-            for (const dot of listDots) {
-                dot.classList.remove("top-dot-active");
-            }
+            const activeDot = topCategoriesFooter.querySelector(".top-dot-active");
+            activeDot.classList.remove("top-dot-active");
             dotElement.classList.add("top-dot-active");
 
             const listProducts = listTopCategoriesProducts.slice(i*4,i*4+4);
@@ -243,15 +238,22 @@ function createTopCategoriesProductItem(product){
      </div>
     
     <div class="top-category-product-info">
-        <span class="top-category-product-name">${product.title}</span>
+        <span class="top-category-product-name text-ellipsis">${product.title}</span>
         <span class="top-category-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>     
     </div>`;
     return productItem;
 }
 
-
-
-
-
+// lấy ngẫu nhiên x phần tử thuộc mảng arr
+function getNewRandomArray(arr, x){
+    let result = [];
+    let newArr = [...arr];
+    for(let i=0; i<x; i++){
+        let index = Math.floor(Math.floor(Math.random() * newArr.length));
+        result.push(newArr[index]);
+        newArr.splice(index, 1);
+    }
+    return result;  
+}
 
 
