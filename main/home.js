@@ -37,7 +37,7 @@ async function showFeaturedProducts(){
             dotElement.classList.add("dot-active");
 
             const listProducts = listFeaturedProducts.slice(i*4,i*4+4);
-            showFeaturedPage(listProducts);
+            showListProducts(featuredProducts, listProducts, createFeaturedProductItem);
             slideFeaturedIndex=i+1;
         })
     }
@@ -52,7 +52,7 @@ async function showFeaturedProductsSlide() {
     }
     // hien thi page
     const listProducts = listFeaturedProducts.slice((slideFeaturedIndex-1)*4,(slideFeaturedIndex-1)*4+4);
-    showFeaturedPage(listProducts);
+    showListProducts(featuredProducts, listProducts, createFeaturedProductItem);
 
     // active dot 
     const listDots = featuredFooter.getElementsByClassName("dot");
@@ -61,27 +61,15 @@ async function showFeaturedProductsSlide() {
     }
     listDots[slideFeaturedIndex-1].classList.add("dot-active");
 
-    // setTimeout(showFeaturedProductsSlide, 3000);
+    setTimeout(showFeaturedProductsSlide, 3000);
 }
 
-function showFeaturedPage(listProducts){
-    if(listProducts.length === 0){
-        featuredProducts.innerHTML = "No data";
-    } else {
-        featuredProducts.innerHTML = "";
-        for (const element of listProducts) {
-            const productItem = createProductItem(element);
-            featuredProducts.appendChild(productItem);
-        }
-    }
-}
-
-function createProductItem(product){
+function createFeaturedProductItem(product){
     const productItem = document.createElement("div");
     productItem.classList.add("featured-product");
     productItem.innerHTML =
     `<div class="featured-product-image">
-        <img class="featured-product-thumbnail" src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png">
+        <img class="featured-product-thumbnail" src=${product.thumbnail}>
         <div class="featured-product-icon">
             <img class="product-icon-cart" src="/file icon/add-cart-product.png">
             <img class="product-icon-heart" src="/file icon/heart-product.png">
@@ -90,9 +78,9 @@ function createProductItem(product){
         <button class="featured-product-view-detail-btn">View Details</button>
     </div>
     <div class="featured-product-info">
-        <span class="featured-product-name">Essence Mascara Lash Princess</span>
-        <span class="featured-product-code">Code - RCH45Q1A</span>
-        <span class="featured-product-price">$9.99</span>
+        <span class="featured-product-name">${product.title}</span>
+        <span class="featured-product-code">Code - ${product.sku}</span>
+        <span class="featured-product-price">$${product.price}</span>
     </div>`;
     return productItem;        
 }
@@ -103,12 +91,7 @@ const latestMenu = document.getElementById("latest-menu");
 const latestProducts = document.getElementById("latest-products");
 showLatestProducts();
 
-function showLatestProducts(){
-    showListCategoriesMenu();
-    showListLatestProduct();
-}
-
-async function showListCategoriesMenu(){
+async function showLatestProducts(){
     const response = await fetch(apiGetAllProductCategories);
     const data = await response.json();
     createLatestProductsTab(data.slice(0,4));
@@ -123,7 +106,7 @@ async function createLatestProductsTab(listCategories){
             const response = await fetch(listCategories[i].url);
             const data = await response.json();
             const listProducts = data.products;
-            showListLatestProduct(listProducts);
+            showListProducts(latestProducts, listProducts, createLatestProductItem);
         }
         tabItem.textContent=listCategories[i].name;
         latestMenu.appendChild(tabItem);
@@ -139,18 +122,10 @@ async function createLatestProductsTab(listCategories){
             const response = await fetch(listCategories[i].url);
             const data = await response.json();
             const listProducts = data.products.slice(0,6);
-            showListLatestProduct(listProducts);
+            showListProducts(latestProducts, listProducts, createLatestProductItem);
         })
     }
     
-}
-
-function showListLatestProduct(listProducts){
-    latestProducts.innerHTML="";
-    for(let i=0; i<listProducts.length; i++){
-        latestProducts.appendChild(createLatestProductItem(listProducts[i]));
-    }
-
 }
 
 function createLatestProductItem(product){
@@ -174,9 +149,47 @@ function createLatestProductItem(product){
         </div>       
     </div>`;
     return productItem;
-
-
 }
+
+
+const trendingProducts = document.getElementById("trending-products");
+showTrendingProducts();
+
+async function showTrendingProducts () {
+    // lay danh sach trending products
+    const response = await fetch(apiGetAllProducts +`?limit=4&skip=0`);
+    const data = await response.json();
+    const listTrendingProducts = data.products;
+    showListProducts(trendingProducts, listTrendingProducts, createTrendingProductItem);
+}
+
+function createTrendingProductItem(product){
+    const productItem = document.createElement("div");
+    productItem.classList.add("trending-product");
+    productItem.innerHTML = 
+    `<img class="trending-product-thumbnail" src=${product.thumbnail}>
+    <div class="trending-product-info">
+        <span class="trending-product-name">${product.title}</span>
+        <div>
+            <span class="trending-product-price-sale">$${(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
+            <span class="trending-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
+        </div>       
+    </div>`;
+    return productItem;
+}
+
+function showListProducts(container, listProducts, createProductItem){
+    if(listProducts.length === 0){
+        container.innerHTML = "No data";
+    } else {
+        container.innerHTML = "";
+        for (const element of listProducts) {
+            const productItem = createProductItem(element);
+            container.appendChild(productItem);
+        }
+    }
+}
+
 
 
 

@@ -407,17 +407,6 @@ a {
     border-bottom: 1px solid #fb2e86;
 }
 
-.parent {
-    &:hover {
-        .child {
-            display: block;
-        }
-    }
-    .child {
-        display: none;
-    }
-}
-
 .latest-products {
     margin-top: 48px;
     margin-bottom: 48px;
@@ -638,4 +627,63 @@ a {
     font-weight: 400;
     line-height: normal;
     display: block;
+}
+
+.trending-products {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trending-product {
+    width: 270px;
+    height: 350px;
+    flex-shrink: 0;
+    /* shadow */
+    box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+}
+
+.trending-product-thumbnail {
+    display: inline-flex;
+    padding: 41px 35px 32px 41px;
+    justify-content: flex-end;
+    align-items: center;
+    background: #f5f6f8;
+    width: 270px;
+    height: 270px;
+}
+
+.trending-product-name {
+    color: var(--Text, #151875);
+    text-align: center;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25.6px; /* 160% */
+}
+
+.trending-product-price-sale {
+    color: var(--Text, #151875);
+    text-align: center;
+    /* Caption\ */
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.trending-product-price {
+    color: rgba(21, 24, 117, 0.3);
+    text-align: center;
+
+    /* price cut */
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: strikethrough;
 }
