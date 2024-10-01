@@ -203,9 +203,16 @@ async function showTopCategories() {
         const data = await response.json();
         listTopCategoriesProducts = listTopCategoriesProducts.concat(data.products);
     }
+    console.log("listTopCategoriesProducts: ", listTopCategoriesProducts);
 
     const numberPerPage = 4;
-    const numOfTopPage = Math.floor(listTopCategoriesProducts.length / numberPerPage) + 1;
+    let numOfTopPage = 0;
+    if (listTopCategoriesProducts.length % numberPerPage === 0){
+        numOfTopPage = listTopCategoriesProducts.length / numberPerPage;
+    } else {
+        numOfTopPage = Math.floor(listTopCategoriesProducts.length / numberPerPage) + 1
+    }
+   
 
     // show footer
     for(let i=0; i<numOfTopPage; i++){
