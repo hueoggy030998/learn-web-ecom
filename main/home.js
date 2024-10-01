@@ -139,10 +139,10 @@ function createLatestProductItem(product){
         </div>
     </div>
     <div class="latest-product-info">
-        <span class="latest-product-name text-ellipsis">${product.title}</span>
+        <span class="latest-product-name">${product.title}</span>
         <div>
-            <span class="latest-product-price-sale">$${parseFloat(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
-            <span class="latest-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
+            <span class="latest-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="latest-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
@@ -163,13 +163,14 @@ async function showTrendingProducts () {
 function createTrendingProductItem(product){
     const productItem = document.createElement("div");
     productItem.classList.add("trending-product");
+    
     productItem.innerHTML = 
     `<img class="trending-product-thumbnail" src=${product.thumbnail}>
     <div class="trending-product-info">
         <span class="trending-product-name text-ellipsis">${product.title}</span>
         <div>
-            <span class="trending-product-price-sale">$${parseFloat(product.price*(100-product.discountPercentage)/100).toFixed(2).toLocaleString("en-US")}</span>
-            <span class="trending-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>
+            <span class="trending-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="trending-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
