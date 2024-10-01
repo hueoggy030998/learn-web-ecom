@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -328,6 +329,8 @@ a {
   gap: 12px;
   margin-top: 15px;
   align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .featured-product-name {
@@ -472,6 +475,8 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .latest-product-name {
@@ -642,8 +647,18 @@ a {
   justify-content: flex-end;
   align-items: center;
   background: #f5f6f8;
-  width: 270px;
-  height: 270px;
+  width: 247px;
+  height: 244px;
+  margin-top: 11px;
+}
+
+.trending-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .trending-product-name {
@@ -773,4 +788,10 @@ a {
 
 .top-dot-active {
   background-color: #fb2e86;
+}
+
+.text-ellipsis {
+  white-space: nowrap; /* Không xuống dòng */
+  overflow: hidden; /* Ẩn phần văn bản tràn */
+  text-overflow: ellipsis;
 }
