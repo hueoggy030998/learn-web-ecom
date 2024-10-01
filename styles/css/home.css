@@ -81,6 +81,10 @@ a {
   gap: 0;
 }
 
+.active {
+  color: #fb2e86;
+}
+
 .brand-name {
   color: #0d0e43;
   font-family: "Josefin Sans";
@@ -117,6 +121,7 @@ a {
   border: solid 2px #e7e6ef;
   border-right: none;
   margin: 0;
+  padding: 8px;
 }
 
 .search-button {
@@ -215,7 +220,9 @@ a {
   line-height: normal;
 }
 
-.featured-products {
+.featured-products,
+.trending-products,
+.top-categories {
   margin-top: 48px;
   margin-bottom: 48px;
   display: flex;
@@ -620,19 +627,13 @@ a {
   display: block;
 }
 
-.trending-products {
-  margin-top: 48px;
-  margin-bottom: 48px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .trending-product {
   width: 270px;
   height: 350px;
   flex-shrink: 0;
   /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+  cursor: pointer;
 }
 
 .trending-product-thumbnail {
@@ -676,4 +677,100 @@ a {
   font-weight: 400;
   line-height: normal;
   text-decoration-line: strikethrough;
+}
+
+.top-category-product {
+  width: 269px;
+  height: 345px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.top-category-product:hover .top-category-product-image {
+  border-radius: 269px;
+  border: solid 1px #9877e7;
+  /* shadow */
+  box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+}
+.top-category-product:hover .top-category-button {
+  display: block;
+}
+
+.top-category-product-image {
+  width: 269px;
+  height: 269px;
+  position: relative;
+}
+
+.top-category-product-thumbnail {
+  width: 269px;
+  height: 269px;
+  flex-shrink: 0;
+  border-radius: 269px;
+  background: #f6f7fb;
+  /* shadow */
+  box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+}
+
+.top-category-button {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 213px;
+  left: 93px;
+  width: 94px;
+  height: 29px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 2px;
+  background: #08d15f;
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.top-category-product-name {
+  color: var(--Text, #151875);
+  font-family: "Josefin Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+  margin-top: 27px;
+  margin-bottom: 13px;
+}
+
+.top-category-product-price {
+  color: var(--Text, #151875);
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.top-categories-footer {
+  height: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.top-dot {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: solid 1px #fb2e86;
+  border-radius: 50px;
+}
+
+.top-dot-active {
+  background-color: #fb2e86;
 }

@@ -191,6 +191,65 @@ function showListProducts(container, listProducts, createProductItem){
 }
 
 
+const topCategories = document.getElementById("top-categories");
+const topCategoriesFooter = document.getElementById("top-categories-footer");
+showTopCategories();
+
+async function showTopCategories() {
+    // lay danh sach top categories
+    const response = await fetch(apiGetAllProductCategories);
+    const data = await response.json();
+    const response1 = await fetch(data[0].url);
+    const data1 = await response1.json();
+    const response2 = await fetch(data[1].url);
+    const data2 = await response2.json();
+    const listTopCategoriesProducts = [...data1.products, ...data2.products];
+    console.log(listTopCategoriesProducts);
+
+    const numberPerPage = 4;
+    const numOfTopPage = Math.floor(listTopCategoriesProducts.length / numberPerPage) + 1;
+    console.log("numOfTopPage: ", numOfTopPage);
+
+    // show footer
+    for(let i=0; i<numOfTopPage; i++){
+        // tạo dot
+        let dotElement = document.createElement("span");
+        dotElement.classList.add("top-dot");
+        topCategoriesFooter.appendChild(dotElement);
+        if(i===0){
+            dotElement.classList.add("top-dot-active");
+            showListProducts(topCategories, listTopCategoriesProducts.slice(i*4,i*4+4), createTopCategoriesProductItem);
+        }
+        dotElement.addEventListener("click", async function (){
+            const listDots = topCategoriesFooter.getElementsByClassName("top-dot-active");
+            for (const dot of listDots) {
+                dot.classList.remove("top-dot-active");
+            }
+            dotElement.classList.add("top-dot-active");
+
+            const listProducts = listTopCategoriesProducts.slice(i*4,i*4+4);
+            showListProducts(topCategories, listProducts, createTopCategoriesProductItem);
+        })
+    }
+}
+
+function createTopCategoriesProductItem(product){
+    const productItem = document.createElement("div");
+    productItem.classList.add("top-category-product");
+    productItem.innerHTML = 
+    `<div class="top-category-product-image">
+        <img class="top-category-product-thumbnail" src=${product.thumbnail}>
+        <button class="top-category-button">View Product</button>
+     </div>
+    
+    <div class="top-category-product-info">
+        <span class="top-category-product-name">${product.title}</span>
+        <span class="top-category-product-price">$${product.price.toFixed(2).toLocaleString("en-US")}</span>     
+    </div>`;
+    return productItem;
+}
+
+
 
 
 

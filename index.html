@@ -45,14 +45,14 @@
         <div class="w-1168 flex menu">
             <span class="brand-name">Hekto</span>
             <ul class="flex list-menu">
-                <li><a href="./home">Home</a></li>
+                <li><a href="./home" class="active">Home</a></li>
                 <li><a href="./pages">Pages</a></li>
                 <li><a href="./products">Products</a></li>
                 <li><a href="./blog">Blog</a></li>
                 <li><a href="./shop">Shop</a></li>
                 <li><a href="./contact">Contact</a></li>
             </ul>
-            <div class="search-product flex justify-between">
+            <div class="flex search-product">
                 <input type="text" class="search-input">
                 <button class="search-button">
                     <img src="./file icon/search.png" alt="search">
@@ -144,6 +144,12 @@
     <div class="home-container">
         <span class="title">Trending Products</span>
         <div id="trending-products" class="w-1168 trending-products"></div>
+    </div>
+
+    <div class="home-container">
+        <span class="title">Top Categories</span>
+        <div id="top-categories" class="w-1168 top-categories"></div>
+        <div id="top-categories-footer" class="w-1168 top-categories-footer"></div>
     </div>
 
     <script src="./main/api.js"></script>
