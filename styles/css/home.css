@@ -22,6 +22,10 @@
   justify-content: center;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .gap-10 {
   gap: 10px;
 }
@@ -808,4 +812,150 @@ a {
   white-space: nowrap; /* Không xuống dòng */
   overflow: hidden; /* Ẩn phần văn bản tràn */
   text-overflow: ellipsis;
+}
+
+.banner-3 {
+  width: auto;
+  height: 462px;
+  background-image: url("/file icon/banner-3.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.get-latest {
+  color: var(--Text, #151875);
+  text-align: center;
+  font-family: "Josefin Sans";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 155%; /* 54.25px */
+  letter-spacing: 0.525px;
+}
+
+.latest-blog {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  width: 370px;
+  height: 493px;
+  border-radius: 5px;
+  background: #fff;
+  /* shadow */
+  box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
+  cursor: pointer;
+}
+
+.blog-item:hover .blog-title {
+  color: #fb2e86;
+}
+.blog-item:hover .read-more-btn {
+  color: #fb2e86;
+}
+
+.blog-image {
+  width: 370px;
+  height: 255px;
+  border-radius: 5px;
+}
+
+.blog-info {
+  margin-top: 20px;
+  margin-left: 14px;
+}
+
+.blog-icon {
+  width: 11px;
+  height: 11px;
+  margin-right: 2px;
+}
+
+.blog-text {
+  color: var(--Text, #151875);
+  font-family: "Josefin Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 29px;
+}
+
+.blog-title {
+  color: var(--Text, #151875);
+  font-family: "Josefin Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 30px;
+  margin-left: 19px;
+}
+
+.blog-des {
+  color: #72718f;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 187.5% */
+  margin-top: 17px;
+  margin-left: 19px;
+}
+
+.read-more-btn {
+  border: none;
+  background-color: #fff;
+  color: var(--Text, #151875);
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 187.5% */
+  text-decoration-line: underline;
+  margin-top: 14px;
+  margin-left: 19px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 100px;
+  height: 53px;
+  background: #e7e4f8;
+}
+
+.footer-item {
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.company-address {
+  color: #9da0ae;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.social-icon {
+  display: inline-block;
+}
+
+.social-icon-item {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
