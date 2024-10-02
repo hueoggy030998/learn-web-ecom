@@ -1,7 +1,13 @@
 @charset "UTF-8";
 * {
   box-sizing: border-box;
+}
+
+body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .flex {
@@ -31,7 +37,7 @@
 }
 
 .w-1168 {
-  width: 1168px;
+  max-width: 1168px;
   margin: auto;
 }
 
@@ -230,7 +236,8 @@ a {
 .top-categories {
   margin-top: 48px;
   margin-bottom: 48px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
   justify-content: space-between;
 }
 
@@ -388,6 +395,7 @@ a {
 }
 
 .home-container {
+  width: 100% !important;
   margin-top: 100px;
   text-align: center;
 }
@@ -815,7 +823,7 @@ a {
 }
 
 .banner-3 {
-  width: auto;
+  width: 100%;
   height: 462px;
   background-image: url("/file icon/banner-3.png");
   display: flex;
