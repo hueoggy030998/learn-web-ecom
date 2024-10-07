@@ -938,15 +938,16 @@ a {
 
 .footer {
   margin-top: 100px;
-  height: 53px;
+  height: 532px;
   background: #e7e4f8;
 }
 
-.footer-item {
+.footer-item-2 {
   height: 53px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #e7e4f8;
 }
 
 .company-address {
@@ -966,4 +967,111 @@ a {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+.footer-item-1 {
+  height: 479px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #eeeffb;
+  padding-top: 95px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-right: 95px;
+}
+
+.footer-contact-title {
+  color: #000;
+  font-family: "Josefin Sans";
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.footer-contact-input {
+  width: 377px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 3px;
+  background: var(--white, #fff);
+  margin-top: 31px;
+  position: relative;
+}
+
+.footer-contact-input-email {
+  width: 242px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 3px;
+  background: var(--white, #fff);
+  padding: 14px 11px;
+  font-family: Lato;
+  color: #000;
+  font-size: 16px;
+}
+
+.footer-contact-sign-up-btn {
+  width: 135px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  background: var(--Accent, #fb2e86);
+  border: none;
+  color: var(--bg-shade, #eeeffb);
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.footer-contact-info {
+  color: var(--sub-text-color, #8a8fb9);
+  /* paragraph text */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 25px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 85px;
+}
+
+.footer-menu-title {
+  color: #000;
+  font-family: "Josefin Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 41px;
+}
+
+.footer-menu-item {
+  color: var(--sub-text-color, #8a8fb9);
+  /* paragraph text */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 21px;
 }
