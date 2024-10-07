@@ -974,6 +974,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  gap: 95px;
   background-color: #eeeffb;
   padding-top: 95px;
 }
@@ -982,7 +983,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-right: 95px;
 }
 
 .footer-contact-title {
@@ -1052,7 +1052,6 @@ a {
 .footer-menu {
   display: flex;
   flex-direction: column;
-  margin-right: 85px;
 }
 
 .footer-menu-title {
