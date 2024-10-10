@@ -1,10 +1,24 @@
 const featuredProducts = document.getElementById("featured-products");
 const featuredFooter = document.getElementById("featured-footer");
-// hien thi Featured Products
+//show Featured Products
 let slideFeaturedIndex = 0;
 let listFeaturedProducts;
 let numOfFeaturedPage;
 showFeaturedProducts();
+
+//show Latest Products
+const latestMenu = document.getElementById("latest-menu");
+const latestProducts = document.getElementById("latest-products");
+showLatestProducts();
+
+//show Trending Products
+const trendingProducts = document.getElementById("trending-products");
+showTrendingProducts();
+
+//show Top Categories
+const topCategories = document.getElementById("top-categories");
+const topCategoriesFooter = document.getElementById("top-categories-footer");
+showTopCategories();
 
 async function showFeaturedProducts(){
     const numberFeaturedProducts = 12;
@@ -13,7 +27,7 @@ async function showFeaturedProducts(){
     const data = await response.json();
     listFeaturedProducts = data.products;
     
-    // tinh tong so trang hien thi, neu nhieu hon 3 trang thi chi hien thi 3
+    // tinh tong so trang hien thi, neu it hon 12 sp thi hien thi dung so trang 
     if (listFeaturedProducts.length < numberFeaturedProducts) {
         numOfFeaturedPage = Math.floor(listFeaturedProducts.length / numberPerPage) + 1;
     } else {
@@ -51,15 +65,13 @@ async function showFeaturedProductsSlide() {
     // hien thi page
     const listProducts = listFeaturedProducts.slice((slideFeaturedIndex-1)*4,(slideFeaturedIndex-1)*4+4);
     showListProducts(featuredProducts, listProducts, createFeaturedProductItem);
-
     // active dot 
     const listDots = featuredFooter.getElementsByClassName("dot");
     for (const dot of listDots) {
         dot.classList.remove("dot-active");
     }
     listDots[slideFeaturedIndex-1].classList.add("dot-active");
-
-    // setTimeout(showFeaturedProductsSlide, 3000);
+    setTimeout(showFeaturedProductsSlide, 3000);
 }
 
 function createFeaturedProductItem(product){
@@ -87,12 +99,6 @@ function createFeaturedProductItem(product){
     </div>`;
     return productItem;        
 }
-
-
-//show Latest Product
-const latestMenu = document.getElementById("latest-menu");
-const latestProducts = document.getElementById("latest-products");
-showLatestProducts();
 
 async function showLatestProducts(){
     const response = await fetch(apiGetAllProductCategories);
@@ -143,19 +149,15 @@ function createLatestProductItem(product){
             <img class="product-icon-search" src="/file icon/search-product.png">
         </div>
     </div>
-    <div class="latest-product-info">
-        <span class="josefin-sans text-ellipsis latest-product-name">${product.title}</span>
+    <div class="josefin-sans latest-product-info">
+        <span class="text-ellipsis latest-product-name">${product.title}</span>
         <div>
-            <span class="josefin-sans latest-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-            <span class="josefin-sans latest-product-price">$${product.price.toLocaleString("en-US")}</span>
+            <span class="latest-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="latest-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
 }
-
-
-const trendingProducts = document.getElementById("trending-products");
-showTrendingProducts();
 
 async function showTrendingProducts () {
     // lay danh sach trending products
@@ -173,9 +175,9 @@ function createTrendingProductItem(product){
     `<img class="trending-product-thumbnail" src=${product.thumbnail}>
     <div class="flex-column trending-product-info">
         <span class="lato-bold text-ellipsis trending-product-name">${product.title}</span>
-        <div>
-            <span class="josefin-sans trending-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-            <span class="josefin-sans trending-product-price">$${product.price.toLocaleString("en-US")}</span>
+        <div class="josefin-sans">
+            <span class="trending-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="trending-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
@@ -192,11 +194,6 @@ function showListProducts(container, listProducts, createProductItem){
         }
     }
 }
-
-
-const topCategories = document.getElementById("top-categories");
-const topCategoriesFooter = document.getElementById("top-categories-footer");
-showTopCategories();
 
 async function showTopCategories() {
     // lay danh sach top categories
