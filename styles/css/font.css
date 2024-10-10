@@ -70,3 +70,15 @@
   overflow: hidden; /* Ẩn phần văn bản tràn */
   text-overflow: ellipsis;
 }
+
+.primary-color {
+  color: #fb2e86;
+}
+
+.bg-primary-color {
+  background-color: #fb2e86;
+}
+
+.active {
+  color: #fb2e86;
+}

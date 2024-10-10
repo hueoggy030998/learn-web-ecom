@@ -40,18 +40,6 @@ body {
   margin: auto;
 }
 
-.primary-color {
-  color: #fb2e86;
-}
-
-.bg-primary-color {
-  background-color: #fb2e86;
-}
-
-.active {
-  color: #fb2e86;
-}
-
 a {
   color: inherit;
   text-decoration: inherit;
