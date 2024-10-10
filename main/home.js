@@ -59,7 +59,7 @@ async function showFeaturedProductsSlide() {
     }
     listDots[slideFeaturedIndex-1].classList.add("dot-active");
 
-    setTimeout(showFeaturedProductsSlide, 3000);
+    // setTimeout(showFeaturedProductsSlide, 3000);
 }
 
 function createFeaturedProductItem(product){
@@ -68,22 +68,22 @@ function createFeaturedProductItem(product){
     productItem.innerHTML =
     `<div class="featured-product-image">
         <img class="featured-product-thumbnail" src=${product.thumbnail}>
-        <div class="featured-product-icon">
+        <div class="flex featured-product-icon">
             <img class="product-icon-cart" src="/file icon/add-cart-product.png">
             <img class="product-icon-heart" src="/file icon/heart-product.png">
             <img class="product-icon-search" src="/file icon/search-product.png">
         </div>
-        <button class="featured-product-view-detail-btn">View Details</button>
+        <button class="josefin-sans-medium featured-product-view-detail-btn">View Details</button>
     </div>
     <div class="featured-product-info">
-        <span class="featured-product-name text-ellipsis">${product.title}</span>
+        <span class="lato-bold featured-product-name text-ellipsis">${product.title}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="4" viewBox="0 0 52 4" fill="none">
             <rect width="14" height="4" rx="2" fill="#05E6B7"/>
             <rect x="19" width="14" height="4" rx="2" fill="#F701A8"/>
             <rect x="38" width="14" height="4" rx="2" fill="#00009D"/>
         </svg>
-        <span class="featured-product-code">Code - ${product.sku}</span>
-        <span class="featured-product-price">$${product.price}</span>
+        <span class="josefin-sans featured-product-code">Code - ${product.sku}</span>
+        <span class="lato-regular featured-product-price">$${product.price}</span>
     </div>`;
     return productItem;        
 }
@@ -144,10 +144,10 @@ function createLatestProductItem(product){
         </div>
     </div>
     <div class="latest-product-info">
-        <span class="latest-product-name">${product.title}</span>
+        <span class="josefin-sans text-ellipsis latest-product-name">${product.title}</span>
         <div>
-            <span class="latest-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-            <span class="latest-product-price">$${product.price.toLocaleString("en-US")}</span>
+            <span class="josefin-sans latest-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="josefin-sans latest-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
@@ -171,11 +171,11 @@ function createTrendingProductItem(product){
     
     productItem.innerHTML = 
     `<img class="trending-product-thumbnail" src=${product.thumbnail}>
-    <div class="trending-product-info">
-        <span class="trending-product-name text-ellipsis">${product.title}</span>
+    <div class="flex-column trending-product-info">
+        <span class="lato-bold text-ellipsis trending-product-name">${product.title}</span>
         <div>
-            <span class="trending-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-            <span class="trending-product-price">$${product.price.toLocaleString("en-US")}</span>
+            <span class="josefin-sans trending-product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="josefin-sans trending-product-price">$${product.price.toLocaleString("en-US")}</span>
         </div>       
     </div>`;
     return productItem;
@@ -247,11 +247,11 @@ function createTopCategoriesProductItem(product){
     productItem.innerHTML = 
     `<div class="top-category-product-image">
         <img class="top-category-product-thumbnail" src=${product.thumbnail}>
-        <button class="top-category-button">View Product</button>
+        <button class="josefin-sans top-category-button">View Product</button>
      </div>
     
-    <div class="top-category-product-info">
-        <span class="top-category-product-name text-ellipsis">${product.title}</span>
+    <div class="josefin-sans top-category-product-info">
+        <span class="text-ellipsis top-category-product-name">${product.title}</span>
         <span class="top-category-product-price">$${product.price.toLocaleString("en-US")}</span>     
     </div>`;
     return productItem;

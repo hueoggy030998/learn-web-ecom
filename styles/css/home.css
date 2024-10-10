@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -49,6 +48,10 @@ body {
   background-color: #fb2e86;
 }
 
+.active {
+  color: #fb2e86;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
@@ -62,11 +65,7 @@ a {
 .header {
   height: 44px;
   color: #f1f1f1;
-  font-family: "Josefin Sans";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .header-email {
@@ -88,21 +87,9 @@ a {
   height: 40px;
 }
 
-.menu {
-  gap: 0;
-}
-
-.active {
-  color: #fb2e86;
-}
-
 .brand-name {
   color: #0d0e43;
-  font-family: "Josefin Sans";
   font-size: 34px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
   margin-right: 88px;
 }
 
@@ -110,13 +97,13 @@ a {
   list-style-type: none;
   padding: 0;
   color: #0d0e43;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
   gap: 35px;
   margin-right: 227px;
+}
+
+.list-menu li:hover {
+  color: #fb2e86;
 }
 
 .search-product {
@@ -127,11 +114,8 @@ a {
   width: 100%;
   height: 40px;
   font-size: 16px;
-  font-weight: 600;
-  font-family: Lato;
   border: solid 2px #e7e6ef;
   border-right: none;
-  margin: 0;
   padding: 8px;
 }
 
@@ -163,9 +147,7 @@ a {
 }
 
 .des-1 {
-  font-family: Lato;
   font-size: 16px;
-  font-weight: 700;
   color: #fb2e86;
   margin-bottom: 12px;
 }
@@ -173,23 +155,14 @@ a {
 .des-2 {
   width: 700px;
   color: #000;
-  font-family: "Josefin Sans";
   font-size: 53px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 132%; /* 69.96px */
-  letter-spacing: 0.795px;
   margin-bottom: 12px;
 }
 
 .des-3 {
   width: 700px;
   color: var(--sub-text-color, #8a8fb9);
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px; /* 175% */
   margin-bottom: 27px;
 }
 
@@ -198,12 +171,7 @@ a {
   height: 50px;
   background-color: #fb2e86;
   color: #fff;
-  font-family: "Josefin Sans";
   font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 0.34px;
   border: none;
   border-radius: 2px;
 }
@@ -224,11 +192,7 @@ a {
 
 .title {
   color: #1a0b5b;
-  font-family: "Josefin Sans";
   font-size: 42px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 
 .featured-products,
@@ -242,12 +206,7 @@ a {
 }
 
 .featured-product {
-  color: #fff !important;
-  width: 270px;
   height: 361px;
-  flex-shrink: 0;
-  align-items: center;
-  background: #fff;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
@@ -259,12 +218,8 @@ a {
 .featured-product:hover .featured-product-thumbnail {
   background: #f7f7f7;
 }
-.featured-product:hover .featured-product-name {
-  color: #fff;
-}
-.featured-product:hover .featured-product-code {
-  color: #fff;
-}
+.featured-product:hover .featured-product-name,
+.featured-product:hover .featured-product-code,
 .featured-product:hover .featured-product-price {
   color: #fff;
 }
@@ -287,34 +242,31 @@ a {
   cursor: pointer;
   width: 94px;
   height: 29px;
-  flex-shrink: 0;
   border: none;
   border-radius: 2px;
   background: #08d15f;
   color: #fff;
-  font-family: "Josefin Sans";
   font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
 }
 
 .featured-product-image {
-  width: 270px;
   height: 236px;
   position: relative;
 }
 
 .featured-product-thumbnail {
-  width: 270px;
+  width: 100%;
   height: 236px;
   -o-object-fit: contain;
      object-fit: contain;
-  flex-shrink: 0;
   background: #f6f7fb;
 }
 
-.featured-product-icon {
+.featured-product-icon,
+.featured-product-view-detail-btn,
+.latest-product-icon,
+.product-icon-sale,
+.top-category-button {
   display: none;
 }
 
@@ -323,18 +275,10 @@ a {
   height: 30px;
 }
 
-.product-icon-heart {
-  width: 17px;
-  height: 17px;
-}
-
+.product-icon-heart,
 .product-icon-search {
   width: 17px;
   height: 17px;
-}
-
-.featured-product-view-detail-btn {
-  display: none;
 }
 
 .featured-product-info {
@@ -343,35 +287,18 @@ a {
   gap: 12px;
   margin-top: 15px;
   align-items: center;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 8px;
 }
 
 .featured-product-name {
   color: var(--pink, #fb2e86);
-  font-family: Lato;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 
-.featured-product-code {
-  color: var(--Text, #151875);
-  font-family: "Josefin Sans";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
+.featured-product-code,
 .featured-product-price {
   color: var(--Text, #151875);
-  font-family: Lato;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .featured-footer {
@@ -410,21 +337,17 @@ a {
 
 .latest-menu-item {
   color: var(--Text, #151875);
-  font-family: Lato;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   cursor: pointer;
+}
+
+.latest-menu-item:hover {
+  color: var(--pink, #fb2e86);
 }
 
 .latest-menu-item-active {
   color: var(--pink, #fb2e86);
-  font-family: Lato;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   border-bottom: 1px solid #fb2e86;
 }
 
@@ -437,12 +360,8 @@ a {
 }
 
 .latest-product {
-  color: #fff !important;
   width: 360px;
   height: 306px;
-  flex-shrink: 0;
-  align-items: center;
-  background: #fff;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
@@ -466,7 +385,6 @@ a {
 
 .latest-product-image {
   position: relative;
-  width: 360px;
   height: 270px;
 }
 
@@ -475,7 +393,6 @@ a {
   height: 270px;
   -o-object-fit: contain;
      object-fit: contain;
-  flex-shrink: 0;
   background: #f6f7fb;
 }
 
@@ -486,11 +403,6 @@ a {
   left: 18px;
   width: 85px;
   height: 57px;
-  display: none;
-}
-
-.latest-product-icon {
-  display: none;
 }
 
 .latest-product-info {
@@ -503,53 +415,30 @@ a {
 
 .latest-product-name {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap; /* Không xuống dòng */
-  overflow: hidden; /* Ẩn phần văn bản tràn */
-  text-overflow: ellipsis;
   width: 230px;
 }
 
 .latest-product-price-sale {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .latest-product-price {
   color: #fb2448;
-  font-family: "Josefin Sans";
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   text-decoration: line-through;
-}
-
-.shopex-content {
-  display: flex;
-  justify-content: space-between;
 }
 
 .shopex-item {
   margin-top: 55px;
   width: 270px;
   height: 320px;
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background: #fff;
-  /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
 }
 
@@ -560,33 +449,18 @@ a {
 
 .shopex-label {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .shopex-desc {
   color: rgba(26, 11, 91, 0.3);
-  text-align: center;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 25.6px; /* 160% */
 }
 
 .banner-container-2 {
   background-color: #f1f0ff;
   height: 450px;
   margin-top: 100px;
-}
-
-.banner-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .sofa-2 {
@@ -596,29 +470,15 @@ a {
 
 .banner-2-title {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 35px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 132%; /* 46.2px */
-  letter-spacing: 0.525px;
-  margin-bottom: 29px;
 }
 
 .banner-2-des {
   color: #acabc3;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 132%; /* 21.12px */
-  letter-spacing: 0.24px;
-  margin-top: 29px;
 }
 
 .banner-2-add {
-  display: flex;
-  align-items: center;
   gap: 19px;
   margin-top: 38px;
 }
@@ -626,52 +486,26 @@ a {
 .banner-2-button {
   width: 157px;
   height: 45px;
-  flex-shrink: 0;
   border: none;
   background: var(--Accent, #fb2e86);
   color: #fff;
-  font-family: "Josefin Sans";
   font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 0.34px;
 }
 
-.banner-2-product-tilte {
-  color: var(--Text, #151875);
-  font-family: "Josefin Sans";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 0.28px;
-}
-
+.banner-2-product-tilte,
 .banner-2-product-price {
   color: var(--Text, #151875);
-  font-family: Lato;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  display: block;
 }
 
 .trending-product {
-  width: 270px;
   height: 350px;
-  flex-shrink: 0;
-  /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
   cursor: pointer;
 }
 
 .trending-product-thumbnail {
   display: inline-flex;
-  padding: 41px 35px 32px 41px;
-  justify-content: flex-end;
-  align-items: center;
   background: #f5f6f8;
   width: 247px;
   height: 244px;
@@ -679,56 +513,35 @@ a {
 }
 
 .trending-product-info {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
   margin-top: 15px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 8px;
 }
 
 .trending-product-name {
   color: var(--Text, #151875);
   text-align: center;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 25.6px; /* 160% */
 }
 
 .trending-product-price-sale {
   color: var(--Text, #151875);
-  text-align: center;
-  /* Caption\ */
-  font-family: "Josefin Sans";
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .trending-product-price {
   color: rgba(21, 24, 117, 0.3);
-  text-align: center;
-  /* price cut */
-  font-family: "Josefin Sans";
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   text-decoration-line: line-through;
 }
 
 .top-category-product {
-  width: 269px;
   height: 345px;
-  flex-shrink: 0;
   cursor: pointer;
 }
 
 .top-category-product:hover .top-category-product-image {
-  border-radius: 269px;
+  border-radius: 100%;
   border: solid 1px #9877e7;
   /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
@@ -738,49 +551,35 @@ a {
 }
 
 .top-category-product-image {
-  width: 269px;
-  height: 269px;
+  height: 270px;
   position: relative;
 }
 
 .top-category-product-thumbnail {
-  width: 269px;
-  height: 269px;
-  flex-shrink: 0;
-  border-radius: 269px;
+  height: 100%;
+  border-radius: 100%;
   background: #f6f7fb;
-  /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
 }
 
 .top-category-button {
-  display: none;
   position: absolute;
   z-index: 2;
   top: 213px;
   left: 93px;
   width: 94px;
   height: 29px;
-  flex-shrink: 0;
   border: none;
   border-radius: 2px;
   background: #08d15f;
   color: #fff;
-  font-family: "Josefin Sans";
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   cursor: pointer;
 }
 
 .top-category-product-name {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   display: block;
   margin-top: 27px;
   margin-bottom: 13px;
@@ -788,18 +587,11 @@ a {
 
 .top-category-product-price {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .top-categories-footer {
-  height: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 10px;
   gap: 10px;
 }
 
@@ -812,41 +604,23 @@ a {
   border-radius: 50px;
 }
 
+.top-dot:hover,
 .top-dot-active {
   background-color: #fb2e86;
 }
 
-.text-ellipsis {
-  white-space: nowrap; /* Không xuống dòng */
-  overflow: hidden; /* Ẩn phần văn bản tràn */
-  text-overflow: ellipsis;
-}
-
 .banner-3 {
-  width: 100%;
   height: 462px;
   background-image: url("/file icon/banner-3.png");
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
 }
 
 .get-latest {
   color: var(--Text, #151875);
-  text-align: center;
-  font-family: "Josefin Sans";
   font-size: 35px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 155%; /* 54.25px */
-  letter-spacing: 0.525px;
+  margin-bottom: 28px;
 }
 
 .latest-blog {
-  display: flex;
-  justify-content: space-between;
   margin-top: 48px;
 }
 
@@ -858,15 +632,11 @@ a {
   width: 370px;
   height: 493px;
   border-radius: 5px;
-  background: #fff;
-  /* shadow */
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.05);
   cursor: pointer;
 }
 
-.blog-item:hover .blog-title {
-  color: #fb2e86;
-}
+.blog-item:hover .blog-title,
 .blog-item:hover .read-more-btn {
   color: #fb2e86;
 }
@@ -890,32 +660,20 @@ a {
 
 .blog-text {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   margin-right: 29px;
 }
 
 .blog-title {
   color: var(--Text, #151875);
-  font-family: "Josefin Sans";
   font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
   margin-top: 30px;
   margin-left: 19px;
 }
 
 .blog-des {
   color: #72718f;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 30px; /* 187.5% */
   margin-top: 17px;
   margin-left: 19px;
 }
@@ -924,11 +682,7 @@ a {
   border: none;
   background-color: #fff;
   color: var(--Text, #151875);
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 30px; /* 187.5% */
   text-decoration-line: underline;
   margin-top: 14px;
   margin-left: 19px;
@@ -944,19 +698,12 @@ a {
 
 .footer-item-2 {
   height: 53px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: #e7e4f8;
 }
 
 .company-address {
   color: #9da0ae;
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .social-icon {
@@ -987,17 +734,12 @@ a {
 
 .footer-contact-title {
   color: #000;
-  font-family: "Josefin Sans";
   font-size: 38px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 
 .footer-contact-input {
   width: 377px;
   height: 44px;
-  flex-shrink: 0;
   border: none;
   border-radius: 3px;
   background: var(--white, #fff);
@@ -1008,12 +750,10 @@ a {
 .footer-contact-input-email {
   width: 242px;
   height: 44px;
-  flex-shrink: 0;
   border: none;
   border-radius: 3px;
   background: var(--white, #fff);
   padding: 14px 11px;
-  font-family: Lato;
   color: #000;
   font-size: 16px;
 }
@@ -1021,16 +761,11 @@ a {
 .footer-contact-sign-up-btn {
   width: 135px;
   height: 39px;
-  flex-shrink: 0;
   border-radius: 3px;
   background: var(--Accent, #fb2e86);
   border: none;
   color: var(--bg-shade, #eeeffb);
-  font-family: "Josefin Sans";
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
   position: absolute;
   z-index: 2;
   right: 0;
@@ -1040,37 +775,18 @@ a {
 
 .footer-contact-info {
   color: var(--sub-text-color, #8a8fb9);
-  /* paragraph text */
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   margin-top: 25px;
-}
-
-.footer-menu {
-  display: flex;
-  flex-direction: column;
 }
 
 .footer-menu-title {
   color: #000;
-  font-family: "Josefin Sans";
   font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
   margin-bottom: 41px;
 }
 
 .footer-menu-item {
   color: var(--sub-text-color, #8a8fb9);
-  /* paragraph text */
-  font-family: Lato;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   margin-bottom: 21px;
 }
