@@ -528,3 +528,8 @@ a {
 .product-list-footer .dot-active {
   background-color: #fb2e86;
 }
+
+.no-data {
+  font-size: 30px;
+  color: #151875;
+}

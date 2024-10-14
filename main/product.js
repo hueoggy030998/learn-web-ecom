@@ -12,17 +12,6 @@ let skip = 0;
 let orderBy = "";
 let search = "";
 
-showProductList(viewType, search, limit, skip, orderBy);
-perPageInput.addEventListener("input", function(){
-    console.log("input:", perPageInput.value);
-    if(perPageInput.value != "" && perPageInput.value >= 0){
-        limit = perPageInput.value;
-    }else{
-        limit = 12;
-    }
-    showProductList(viewType, search, limit, skip, orderBy);
-})
-
 const listOptions = document.querySelectorAll(".dropdown-content span");
 const dropdownValue = document.querySelector(".dropdown-value");
 for (const option of listOptions) {
@@ -37,6 +26,18 @@ for (const option of listOptions) {
         showProductList(viewType, search, limit, skip, orderBy);
     });
 }
+
+// mac dinh show trang dau tien
+showProductList(viewType, search, limit, skip, orderBy);
+
+perPageInput.addEventListener("input", debounce(function(){
+    if(perPageInput.value != "" && perPageInput.value >= 0){
+        limit = perPageInput.value;
+    }else{
+        limit = 12;
+    }
+    showProductList(viewType, search, limit, skip, orderBy);
+}))
 
 viewTypeGrid.addEventListener("click", function(){
     viewType="GRID";
@@ -62,11 +63,11 @@ function changeBanner(viewType){
     }
 }
 
-productFilterSearch.addEventListener("input", function(){
-    console.log("eeee:", productFilterSearch.value)
+productFilterSearch.addEventListener("input", debounce(function(){
+    console.log("search:", productFilterSearch.value)
     search = productFilterSearch.value;
     showProductList(viewType, search, limit, skip, orderBy);
-})
+}))
 
 async function showProductList(viewType, search, limit, skip, orderBy){ 
     let sortBy="";
@@ -93,22 +94,28 @@ async function showProductList(viewType, search, limit, skip, orderBy){
     }
 
     productList.innerHTML = "";
-    if(viewType==="GRID"){
-        productList.classList.remove("product-list-list");
-        productList.classList.add("product-list-grid");
-    }else{
-        productList.classList.remove("product-list-grid");
-        productList.classList.add("product-list-list");
-    }
+    productListFooter.innerHTML = "";
+
     const response = await fetch(apiSearchProducts + `?limit=${limit}&skip=${skip}&sortBy=${sortBy}&order=${order}&q=${search}`);
     const data = await response.json();
     const listProducts = data.products;
     console.log("listProducts: ", listProducts);
-    console.log("productList before ", productList);
-    for (let i=0; i<listProducts.length; i++) {
-        productList.appendChild(createProductItem(listProducts[i], viewType));
+    if(listProducts.length===0){
+        productList.classList.remove("product-list-list", "product-list-grid");
+        productList.classList.add("no-data");
+        productList.textContent="No data";
+    }else{
+        if(viewType==="GRID"){
+            productList.classList.remove("product-list-list");
+            productList.classList.add("product-list-grid");
+        }else{
+            productList.classList.remove("product-list-grid");
+            productList.classList.add("product-list-list");
+        }
+        for (let i=0; i<listProducts.length; i++) {
+            productList.appendChild(createProductItem(listProducts[i], viewType));
+        }
     }
-    console.log("productList after ", productList);
     showNumOfItems(data.total);
     if(data.total % limit === 0){
         showFooter(data.total / limit);
@@ -208,4 +215,12 @@ function createProductItem(product, viewType){
         `;
     }
     return productItem;
+}
+
+function debounce(func, timeout = 300){
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
 }
