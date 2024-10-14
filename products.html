@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="/styles/css/products.css">
+    <link rel="stylesheet" href="/styles/css/font.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="w-1168 flex justify-between josefin-sans-semi-bold header">
+            <div class="flex">
+                <div class="flex gap-10 header-email">
+                    <img src="./file icon/email.png" alt="email">
+                    <a href="mailto:mhhasanul@gmail.com">mhhasanul@gmail.com</a>
+                </div>
+                <div class="flex gap-10">
+                    <img src="./file icon/phone.png" alt="phone">
+                    <span>(12345)67890</span>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="flex header-login">
+                    <a href="./login">Login</a>
+                    <img src="./file icon/login.png" alt="login">
+                </div>
+                <div class="flex header-wishlist">
+                    <a href="./wishlist">Wishlist</a>
+                    <img src="./file icon/wishlist.png" alt="wishlist">
+                </div>
+                <div class="header-cart">
+                    <img src="./file icon/cart.png" alt="cart">
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="menu-container">
+        <div class="w-1168 flex menu">
+            <span class="josefin-sans-bold brand-name">Hekto</span>
+            <ul class="flex lato-regular list-menu">
+                <li><a href="./" class="active">Home</a></li>
+                <li><a href="./pages">Pages</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./blog">Blog</a></li>
+                <li><a href="./shop">Shop</a></li>
+                <li><a href="./contact">Contact</a></li>
+            </ul>
+            <div class="flex search-product">
+                <input type="text" class="lato-semi-bold search-input">
+                <button class="search-button">
+                    <img src="./file icon/search.png" alt="search">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="banner-container">
+        <div class="w-1168 flex-column justify-center banner">
+            <span class="josefin-sans-bold banner-title" id="banner-title">Shop Grid Default</span>
+            <span class="lato-medium banner-des" id="banner-des">Home . Pages . Shop Grid Default</span>
+        </div>
+    </div>
+
+    <div class="product-container">
+        <div class="w-1240 flex justify-between">
+            <div class="flex-column align-start">
+                <span class="josefin-sans-bold product-filter-title">Ecommerce Acceories & Fashion item</span>
+                <span id="num-of-items" class="josefin-sans product-filter-total">About 0 result</span>
+            </div>
+            <div class="flex lato-regular product-filter">
+                <div>
+                    <span class="product-filter-label">Per Page:</span>
+                    <input type="text" id="per-page-input" class="lato-regular per-page-input">
+                </div>
+                <div class="flex align-center">
+                    <span class="product-filter-label">Sort by:</span>
+                    <div class="dropdown">
+                        <div class="dropdown-value"></div>
+                        <div class="dropdown-content">
+                            <span value="PRICE_ASC">Low → High</span>
+                            <span value="PRICE_DESC">High → Low</span>
+                            <span value="NAME_ASC">Name A-Z</span>
+                            <span value="NAME_DESC">Name Z-A</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="product-filter-label">View:</span>
+                    <button id="view-type-grid" class="view-type-icon grid" />
+                    <button id="view-type-list" class="view-type-icon list" />
+                </div>
+                <input type="text" id="product-filter-search" class="lato-regular product-filter-search">
+            </div>
+        </div>
+        <div class="w-1240" id="product-list"></div>
+        <div class="w-1240 flex justify-center product-list-footer" id="product-list-footer"></div>
+    </div>
+
+    <div class="product-container">
+        <img src="/file icon/company-list.png">
+    </div>
+
+    <footer class="footer">
+        <div class="footer-item-1">
+            <div class="footer-contact">
+                <span class="josefin-sans-bold footer-contact-title">Hekto</span>
+                <div class="footer-contact-input">
+                    <input type="text" class="lato-regular footer-contact-input-email"
+                        placeholder="Enter Email Address">
+                    <button class="josefin-sans-medium footer-contact-sign-up-btn">Sign Up</button>
+                </div>
+
+                <span class="lato-regular footer-contact-info">
+                    Contact Info
+                    <br>17 Princess Road, London, Greater London NW1 8JR, UK</br>
+                </span>
+
+            </div>
+            <div class="flex-column">
+                <span class="josefin-sans-semi-bold footer-menu-title">Categories</span>
+                <a href="" class="lato-regular footer-menu-item">Laptops & Computers</a>
+                <a href="" class="lato-regular footer-menu-item">Cameras & Photography</a>
+                <a href="" class="lato-regular footer-menu-item">Smart Phones & Tablets</a>
+                <a href="" class="lato-regular footer-menu-item">Video Games & Consoles</a>
+                <a href="" class="lato-regular footer-menu-item">Waterproof Headphones</a>
+            </div>
+            <div class="flex-column">
+                <span class="josefin-sans-semi-bold footer-menu-title">Customer Care</span>
+                <a href="" class="lato-regular footer-menu-item">My Account</a>
+                <a href="" class="lato-regular footer-menu-item">Discount</a>
+                <a href="" class="lato-regular footer-menu-item">Returns</a>
+                <a href="" class="lato-regular footer-menu-item">Orders History</a>
+                <a href="" class="lato-regular footer-menu-item">Order Tracking</a>
+            </div>
+            <div class="flex-column">
+                <span class="josefin-sans-semi-bold footer-menu-title">Pages</span>
+                <a href="" class="lato-regular footer-menu-item">Blog</a>
+                <a href="" class="lato-regular footer-menu-item">Browse the Shop</a>
+                <a href="" class="lato-regular footer-menu-item">Category</a>
+                <a href="" class="lato-regular footer-menu-item">Pre-Built Pages</a>
+                <a href="" class="lato-regular footer-menu-item">Visual Composer Elements</a>
+                <a href="" class="lato-regular footer-menu-item">WooCommerce Pages</a>
+            </div>
+        </div>
+        <div class="w-1168 flex justify-between footer-item-2">
+            <span class="lato-semi-bold company-address">©Webecy - All Rights Reserved</span>
+            <div class="social-icon">
+                <img class="social-icon-item" src="/file icon/facebook.png">
+                <img class="social-icon-item" src="/file icon/instagram.png">
+                <img class="social-icon-item" src="/file icon/twitter.png">
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main/api.js"></script>
+    <script src="./main/product.js"></script>
+</body>
+
+</html>

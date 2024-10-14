@@ -80,10 +80,16 @@ function createFeaturedProductItem(product){
     productItem.innerHTML =
     `<div class="featured-product-image">
         <img class="featured-product-thumbnail" src=${product.thumbnail}>
-        <div class="flex featured-product-icon">
-            <img class="product-icon-cart" src="/file icon/add-cart-product.png">
-            <img class="product-icon-heart" src="/file icon/heart-product.png">
-            <img class="product-icon-search" src="/file icon/search-product.png">
+        <div class="featured-product-icon">
+            <div class="product-icon-item">
+                <img src="/file icon/add-cart-product.png" class="product-icon-item-cart">
+            </div>
+            <div class="product-icon-item">
+                <img src="/file icon/heart-product.png" class="product-icon-item-heart">
+            </div>
+            <div class="product-icon-item">
+                <img src="/file icon/search-product.png" class="product-icon-item-search">
+            </div>
         </div>
         <button class="josefin-sans-medium featured-product-view-detail-btn">View Details</button>
     </div>
@@ -144,9 +150,15 @@ function createLatestProductItem(product){
         <img class="latest-product-thumbnail" src=${product.thumbnail}>
         <img class="product-icon-sale child" src="/file icon/sale-product.png">
         <div class="latest-product-icon">
-            <img class="product-icon-cart" src="/file icon/add-cart-product.png">
-            <img class="product-icon-heart" src="/file icon/heart-product.png">
-            <img class="product-icon-search" src="/file icon/search-product.png">
+            <div class="product-icon-item">
+                <img src="/file icon/add-cart-product.png">
+            </div>
+            <div class="product-icon-item">
+                <img src="/file icon/heart-product.png">
+            </div>
+            <div class="product-icon-item">
+                <img src="/file icon/search-product.png">
+            </div>
         </div>
     </div>
     <div class="josefin-sans latest-product-info">
