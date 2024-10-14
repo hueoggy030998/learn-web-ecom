@@ -279,14 +279,14 @@ a {
 
 .per-page-input {
   width: 55px;
-  height: 30px;
-  border: 1px solid #e7e6ef;
-  padding: 4px;
-  font-size: 16px;
 }
 
 .product-filter-search {
   width: 162px;
+}
+
+.per-page-input,
+.product-filter-search {
   height: 30px;
   border: 1px solid #e7e6ef;
   font-size: 16px;
@@ -387,6 +387,7 @@ a {
 .product-item-card {
   width: 270px;
   height: 363px;
+  cursor: pointer;
 }
 .product-item-card .product-image {
   position: relative;
@@ -399,7 +400,6 @@ a {
   height: 280px;
   -o-object-fit: contain;
      object-fit: contain;
-  background: #f6f7fb;
 }
 .product-item-card .product-icon {
   display: none;
@@ -415,9 +415,17 @@ a {
   box-shadow: 0px 8px 40px 0px rgba(49, 32, 138, 0.0509803922);
   cursor: pointer;
 }
-.product-item-card .product-icon-item img {
-  width: 16px;
-  height: 16px;
+.product-item-card .product-icon-item-cart {
+  width: 19px;
+  height: 19px;
+}
+.product-item-card .product-icon-item-heart {
+  width: 17px;
+  height: 17px;
+}
+.product-item-card .product-icon-item-search {
+  width: 15px;
+  height: 15px;
 }
 .product-item-card .product-info {
   width: 270px;
@@ -434,16 +442,18 @@ a {
   margin-bottom: 8px;
   width: 90%;
 }
-.product-item-card .product-price-sale {
-  color: #fb2e86;
+.product-item-card .product-info-price {
   font-size: 14px;
   margin-top: 15px;
+}
+
+.product-price-sale {
+  color: #151875;
   margin-right: 10px;
 }
-.product-item-card .product-price {
-  color: #151875;
-  font-size: 14px;
-  margin-top: 15px;
+
+.product-price {
+  color: #fb2e86;
   text-decoration: line-through;
 }
 
@@ -481,16 +491,7 @@ a {
 }
 .product-item-list .product-info .product-info-price {
   margin-top: 14px;
-}
-.product-item-list .product-info .product-price-sale {
-  color: #111c85;
   font-size: 16px;
-  margin-right: 10px;
-}
-.product-item-list .product-info .product-price {
-  color: #ff2aaa;
-  font-size: 16px;
-  text-decoration: line-through;
 }
 .product-item-list .product-info .product-description {
   color: #9295aa;
@@ -521,7 +522,7 @@ a {
 .product-list-footer .dot {
   width: 10px;
   height: 10px;
-  border-radius: 10px;
+  border-radius: 100%;
   background-color: #febad7;
   cursor: pointer;
 }

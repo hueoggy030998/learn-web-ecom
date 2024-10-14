@@ -275,14 +275,14 @@ a {
 
 .per-page-input {
     width: 55px;
-    height: 30px;
-    border: 1px solid #e7e6ef;
-    padding: 4px;
-    font-size: 16px;
 }
 
 .product-filter-search {
     width: 162px;
+}
+
+.per-page-input,
+.product-filter-search {
     height: 30px;
     border: 1px solid #e7e6ef;
     font-size: 16px;
@@ -381,6 +381,7 @@ a {
 .product-item-card {
     width: 270px;
     height: 363px;
+    cursor: pointer;
     .product-image {
         position: relative;
         background: #f6f7fb;
@@ -392,7 +393,6 @@ a {
         width: 270px;
         height: 280px;
         object-fit: contain;
-        background: #f6f7fb;
     }
 
     .product-icon {
@@ -409,9 +409,17 @@ a {
         box-shadow: 0px 8px 40px 0px #31208a0d;
         cursor: pointer;
     }
-    .product-icon-item img {
-        width: 16px;
-        height: 16px;
+    .product-icon-item-cart {
+        width: 19px;
+        height: 19px;
+    }
+    .product-icon-item-heart {
+        width: 17px;
+        height: 17px;
+    }
+    .product-icon-item-search {
+        width: 15px;
+        height: 15px;
     }
 
     .product-info {
@@ -431,20 +439,22 @@ a {
         width: 90%;
     }
 
-    .product-price-sale {
-        color: #fb2e86;
+    .product-info-price {
         font-size: 14px;
         margin-top: 15px;
-        margin-right: 10px;
-    }
-
-    .product-price {
-        color: #151875;
-        font-size: 14px;
-        margin-top: 15px;
-        text-decoration: line-through;
     }
 }
+
+.product-price-sale {
+    color: #151875;
+    margin-right: 10px;
+}
+
+.product-price {
+    color: #fb2e86;
+    text-decoration: line-through;
+}
+
 .product-item-card:hover {
     .product-icon {
         display: flex;
@@ -481,16 +491,7 @@ a {
         }
         .product-info-price {
             margin-top: 14px;
-        }
-        .product-price-sale {
-            color: #111c85;
             font-size: 16px;
-            margin-right: 10px;
-        }
-        .product-price {
-            color: #ff2aaa;
-            font-size: 16px;
-            text-decoration: line-through;
         }
         .product-description {
             color: #9295aa;
@@ -511,7 +512,6 @@ a {
             background-color: #fff;
             box-shadow: 0px 0px 27.61px 0px #0000000d;
             cursor: pointer;
-
             img {
                 width: 20px;
                 height: 20px;
@@ -522,11 +522,10 @@ a {
 
 .product-list-footer {
     gap: 10px;
-
     .dot {
         width: 10px;
         height: 10px;
-        border-radius: 10px;
+        border-radius: 100%;
         background-color: #febad7;
         cursor: pointer;
     }

@@ -157,13 +157,13 @@ function createProductItem(product, viewType){
                     <img class="product-thumbnail" src=${product.thumbnail}>
                     <div class="flex-column product-icon">
                         <div class="product-icon-item">
-                            <img class="product-icon-cart" src="/file icon/products-page/add-cart-icon.png">
+                            <img src="/file icon/add-cart-product.png" class="product-icon-item-cart">
                         </div>
                         <div class="product-icon-item">
-                            <img class="product-icon-search" src="/file icon/products-page/search-icon.png">
+                            <img src="/file icon/heart-product.png" class="product-icon-item-heart">
                         </div>
                         <div class="product-icon-item">
-                            <img class="product-icon-heart" src="/file icon/products-page/heart-icon.png">
+                            <img src="/file icon/search-product.png" class="product-icon-item-search">
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ function createProductItem(product, viewType){
                         <ellipse cx="21.1085" cy="5" rx="5.00403" ry="5" fill="#EC42A2" />
                         <ellipse cx="37.1217" cy="5" rx="5.00404" ry="5" fill="#8568FF" />
                     </svg>
-                    <div class="josefin-sans flex justify-center">
+                    <div class="josefin-sans flex justify-center product-info-price">
                         <span
                             class="product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
                         <span class="product-price">$${product.price.toLocaleString("en-US")}</span>

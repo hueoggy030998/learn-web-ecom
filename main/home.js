@@ -151,13 +151,13 @@ function createLatestProductItem(product){
         <img class="product-icon-sale child" src="/file icon/sale-product.png">
         <div class="latest-product-icon">
             <div class="product-icon-item">
-                <img src="/file icon/add-cart-product.png">
+                <img src="/file icon/add-cart-product.png" class="product-icon-item-cart">
             </div>
             <div class="product-icon-item">
-                <img src="/file icon/heart-product.png">
+                <img src="/file icon/heart-product.png" class="product-icon-item-heart">
             </div>
             <div class="product-icon-item">
-                <img src="/file icon/search-product.png">
+                <img src="/file icon/search-product.png" class="product-icon-item-search">
             </div>
         </div>
     </div>
