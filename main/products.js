@@ -182,6 +182,18 @@ function createProductItem(product, viewType){
                 </div>`;
     }else{
         productItem.classList.add("product-item-list");
+        // show rating 
+        let productRating = ""
+        for(let i=1; i<=5; i++){
+            if(i<=product.rating){
+                productRating += `<span class="star-full">&#9733;</span>`;
+            }else if(i-1<product.rating && product.rating < i){
+                productRating += `<span class="star-half">&#9733;</span>`;
+            }else {
+                productRating += `<span class="star">&#9733;</span>`;
+            }
+        }
+
         productItem.innerHTML = 
         `<img class="product-thumbnail" src=${product.thumbnail}>
         <div class="product-info">
@@ -196,7 +208,7 @@ function createProductItem(product, viewType){
             <div class="josefin-sans flex product-info-price">
                 <span class="product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
                 <span class="product-price">$${product.price.toLocaleString("en-US")}</span>    
-                <div class="product-rating"></div>    
+                <div class="product-rating">${productRating}</div>    
             </div>   
             <span class="lato-regular product-description">${product.description}</span>
             <div class="flex product-icon">
