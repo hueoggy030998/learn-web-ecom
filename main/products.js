@@ -8,6 +8,7 @@ const viewTypeList = document.getElementById("view-type-list");
 const productFilterSearch = document.getElementById("product-filter-search");
 let viewType = "GRID";
 let limit = 12;
+let currentPage = 1;
 let skip = 0;
 let orderBy = "";
 let search = "";
@@ -113,7 +114,11 @@ async function showProductList(viewType, search, limit, skip, orderBy){
             productList.classList.add("product-list-list");
         }
         for (let i=0; i<listProducts.length; i++) {
-            productList.appendChild(createProductItem(listProducts[i], viewType));
+            const productItem = createProductItem(listProducts[i], viewType);
+            productList.appendChild(productItem);
+            productItem.addEventListener("click", function(){
+                window.location.href = `/product_details.html?id=${listProducts[i].id}`;
+            })
         }
     }
     showNumOfItems(data.total);
@@ -126,17 +131,80 @@ async function showProductList(viewType, search, limit, skip, orderBy){
 
 function showFooter(numberOfPages){
     productListFooter.innerHTML="";
+    if(numberOfPages > 1) {
+        let prevElement = document.createElement("button");
+        prevElement.classList.add("prev-icon");
+        // prevElement.innerHTML = `&#8592;`;
+        prevElement.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M14 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+        productListFooter.appendChild(prevElement); 
+        console.log("currentPage: ", currentPage);
+        if(currentPage === 1) {
+            prevElement.disabled = true;
+        } else {
+            prevElement.addEventListener("click", function(){
+                currentPage = currentPage - 1;
+                skip = (currentPage-1) * limit;
+                showProductList(viewType, search, limit, skip, orderBy);
+            })
+        }
+    }
+    
+    /*
+    let i=0;
+    while(i<numberOfPages){
+        let dotElement = document.createElement("span");
+        dotElement.classList.add("dot", "josefin-sans");
+        
+        if(numberOfPages > 6 && i >= 3){
+            dotElement.textContent = "...";
+            i = numberOfPages - 3;
+        }else {
+            dotElement.textContent = i+1;
+            if(i===skip/limit){
+                dotElement.classList.add("dot-active");
+            }
+            i++;
+        }
+        productListFooter.appendChild(dotElement);
+    }
+    */
+    
     for(let i=0; i<numberOfPages; i++){
         let dotElement = document.createElement("span");
-        dotElement.classList.add("dot");
+        dotElement.classList.add("dot", "josefin-sans");
+        dotElement.textContent = i+1;
         if(i===skip/limit){
             dotElement.classList.add("dot-active");
         }
         productListFooter.appendChild(dotElement);  
         dotElement.addEventListener("click", function(){
             skip = i * limit;
+            currentPage = i+1;
             showProductList(viewType, search, limit, skip, orderBy);      
         })
+    }
+
+    if(numberOfPages > 1){
+        let nextElement = document.createElement("button");
+        nextElement.classList.add("next-icon");
+        // nextElement.innerHTML = `&#8594;`;
+        nextElement.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`        
+        productListFooter.appendChild(nextElement); 
+        if(currentPage === numberOfPages) {
+            nextElement.disabled = true;
+        } else {
+            nextElement.addEventListener("click", function(){
+                currentPage = currentPage + 1;
+                skip = (currentPage-1) * limit;
+                showProductList(viewType, search, limit, skip, orderBy);
+            })
+        }
     }
 }
 

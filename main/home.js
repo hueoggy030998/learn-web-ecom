@@ -203,6 +203,9 @@ function showListProducts(container, listProducts, createProductItem){
         for (const element of listProducts) {
             const productItem = createProductItem(element);
             container.appendChild(productItem);
+            productItem.addEventListener("click", function(){
+                window.location.href = `/product_details.html?id=${element.id}`;
+            })
         }
     }
 }
