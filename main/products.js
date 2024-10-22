@@ -43,13 +43,15 @@ perPageInput.addEventListener("input", debounce(function(){
 viewTypeGrid.addEventListener("click", function(){
     viewType="GRID";
     changeBanner(viewType);
-    showProductList(viewType, search, limit, skip, orderBy);
+    productList.classList.remove("product-list-list");
+    productList.classList.add("product-list-grid");
 })
 
 viewTypeList.addEventListener("click", function(){
     viewType="LIST";
     changeBanner(viewType);
-    showProductList(viewType, search, limit, skip, orderBy);
+    productList.classList.remove("product-list-grid");
+    productList.classList.add("product-list-list");
 })
 
 function changeBanner(viewType){
@@ -114,7 +116,7 @@ async function showProductList(viewType, search, limit, skip, orderBy){
             productList.classList.add("product-list-list");
         }
         for (let i=0; i<listProducts.length; i++) {
-            const productItem = createProductItem(listProducts[i], viewType);
+            const productItem = createProductItem(listProducts[i]);
             productList.appendChild(productItem);
             productItem.addEventListener("click", function(){
                 window.location.href = `/product_details.html?id=${listProducts[i].id}`;
@@ -216,84 +218,50 @@ function showNumOfItems(number){
     }
 }
 
-function createProductItem(product, viewType){
+function createProductItem(product){
     let productItem = document.createElement("div");
-    if(viewType==="GRID"){
-        productItem.classList.add("product-item-card");
-        productItem.innerHTML = 
-        `<div class="product-image">
-                    <img class="product-thumbnail" src=${product.thumbnail}>
-                    <div class="flex-column product-icon">
-                        <div class="product-icon-item">
-                            <img src="/file icon/add-cart-product.png" class="product-icon-item-cart">
-                        </div>
-                        <div class="product-icon-item">
-                            <img src="/file icon/heart-product.png" class="product-icon-item-heart">
-                        </div>
-                        <div class="product-icon-item">
-                            <img src="/file icon/search-product.png" class="product-icon-item-search">
-                        </div>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <span class="josefin-sans-bold text-ellipsis product-name">${product.title}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="10" viewBox="0 0 43 10" fill="none">
-                        <ellipse cx="5.09583" cy="5" rx="5.00404" ry="5" fill="#DE9034" />
-                        <ellipse cx="21.1085" cy="5" rx="5.00403" ry="5" fill="#EC42A2" />
-                        <ellipse cx="37.1217" cy="5" rx="5.00404" ry="5" fill="#8568FF" />
-                    </svg>
-                    <div class="josefin-sans flex justify-center product-info-price">
-                        <span
-                            class="product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-                        <span class="product-price">$${product.price.toLocaleString("en-US")}</span>
-                    </div>
-                </div>`;
-    }else{
-        productItem.classList.add("product-item-list");
-        // show rating 
-        let productRating = ""
-        for(let i=1; i<=5; i++){
-            if(i<=product.rating){
-                productRating += `<span class="star-full">&#9733;</span>`;
-            }else if(i-1<product.rating && product.rating < i){
-                productRating += `<span class="star-half">&#9733;</span>`;
-            }else {
-                productRating += `<span class="star">&#9733;</span>`;
-            }
+    productItem.classList.add("product-item");
+    let productRating = "";
+    // show rating 
+    for(let i=1; i<=5; i++){
+        if(i<=product.rating){
+            productRating += `<span class="star-full">&#9733;</span>`;
+        }else if(i-1<product.rating && product.rating < i){
+            productRating += `<span class="star-half">&#9733;</span>`;
+        }else {
+            productRating += `<span class="star">&#9733;</span>`;
         }
-
-        productItem.innerHTML = 
-        `<img class="product-thumbnail" src=${product.thumbnail}>
-        <div class="product-info">
-            <div> 
-                <span class="josefin-sans-bold text-ellipsis product-name">${product.title}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="10" viewBox="0 0 43 10" fill="none">
-                    <ellipse cx="5.09583" cy="5" rx="5.00404" ry="5" fill="#DE9034" />
-                    <ellipse cx="21.1085" cy="5" rx="5.00403" ry="5" fill="#EC42A2" />
-                    <ellipse cx="37.1217" cy="5" rx="5.00404" ry="5" fill="#8568FF" />
-                </svg> 
-            </div>       
-            <div class="josefin-sans flex product-info-price">
-                <span class="product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
-                <span class="product-price">$${product.price.toLocaleString("en-US")}</span>    
-                <div class="product-rating">${productRating}</div>    
-            </div>   
-            <span class="lato-regular product-description">${product.description}</span>
-            <div class="flex product-icon">
-                <div class="product-icon-item">
-                    <img class="product-icon-cart" src="/file icon/products-page/add-cart-icon.png">
-                </div>
-                <div class="product-icon-item">
-                    <img class="product-icon-heart" src="/file icon/products-page/heart-icon.png">
-                </div>  
-                <div class="product-icon-item">
-                    <img class="product-icon-search" src="/file icon/products-page/search-icon.png">
-                </div>
-                         
-            </div>       
-        </div>
-        `;
     }
+        
+    productItem.innerHTML = 
+    `<img class="product-thumbnail" src=${product.thumbnail}>
+    <div class="product-info">
+        <div class="product-info-name-color">
+            <span class="josefin-sans-bold text-ellipsis product-name">${product.title}</span>
+            <svg class="product-color" xmlns="http://www.w3.org/2000/svg" width="43" height="10" viewBox="0 0 43 10" fill="none">
+                <ellipse cx="5.09583" cy="5" rx="5.00404" ry="5" fill="#DE9034" />
+                <ellipse cx="21.1085" cy="5" rx="5.00403" ry="5" fill="#EC42A2" />
+                <ellipse cx="37.1217" cy="5" rx="5.00404" ry="5" fill="#8568FF" />
+            </svg>
+        </div>
+        <div class="josefin-sans product-info-price">
+            <span class="product-price-sale">$${parseFloat((product.price*(100-product.discountPercentage)/100).toFixed(2)).toLocaleString("en-US")}</span>
+            <span class="product-price">$${product.price.toLocaleString("en-US")}</span>
+            <div class="product-rating">${productRating}</div>
+        </div>
+        <span class="lato-regular product-description">${product.description}</span>
+    </div>
+    <div class="product-icon">
+        <div class="product-icon-item">
+            <img src="/file icon/add-cart-product.png" class="product-icon-item-cart">
+        </div>
+        <div class="product-icon-item">
+            <img src="/file icon/heart-product.png" class="product-icon-item-heart">
+        </div>
+        <div class="product-icon-item">
+            <img src="/file icon/search-product.png" class="product-icon-item-search">
+        </div>
+    </div>`;
     return productItem;
 }
 
