@@ -285,6 +285,7 @@ a {
 }
 
 .product-detail-list-image {
+    width: 546px;
     height: 487px;
     margin-right: 44px;
     margin-top: 10px;
@@ -302,6 +303,9 @@ a {
         object-fit: contain;
         background-color: #f0f6f6;
         cursor: pointer;
+    }
+    .img-active {
+        border: solid 1px #fb2e86;
     }
 }
 
@@ -461,6 +465,9 @@ a {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 29px;
     margin-top: 47px;
+    div {
+        cursor: pointer;
+    }
 
     .related-product-item-thumb {
         border-radius: 3px;

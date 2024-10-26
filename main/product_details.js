@@ -60,9 +60,14 @@ function showProductImage(listImages){
             }
             let imgSmall = document.createElement("img");
             imgSmall.src = listImages[i];
+            if(i===0){
+                imgSmall.classList.add("img-active");
+            }
             productImgLeft.appendChild(imgSmall);
             imgSmall.addEventListener("click", function(){
-                console.log(1);
+                imgSmallActive = productImgLeft.querySelector(".img-active");
+                imgSmallActive.classList.remove("img-active");
+                imgSmall.classList.add("img-active");
                 imageBig.src = listImages[i];
             })
         }
@@ -191,16 +196,21 @@ async function showRelatedProducts(data){
     console.log("listRelatedProducts ", listRelatedProducts);
     const relatedProductsContainer = document.getElementById("related-products");
     for (const element of listRelatedProducts) {
-        relatedProductsContainer.innerHTML +=
-        `<div class="flex-column related-product-item">
-            <img class="related-product-item-thumb" src="${element.thumbnail}">
+        let relatedProductItem = document.createElement("div");
+        relatedProductItem.classList.add("flex-column", "related-product-item");
+        relatedProductItem.innerHTML +=
+        `<img class="related-product-item-thumb" src="${element.thumbnail}">
                 <div class="flex justify-between align-baseline">
                     <span class="josefin-sans-semi-bold related-product-item-name">${element.title}</span>
                     <div class="product-rating">
                         ${showRating(element.rating)}
                     </div>
                 </div>
-            <span class="josefin-sans related-product-item-price">$${element.price.toLocaleString("en-US")}</span>
-        </div>`;
+        <span class="josefin-sans related-product-item-price">$${element.price.toLocaleString("en-US")}</span>
+        `;
+        relatedProductsContainer.appendChild(relatedProductItem);
+        relatedProductItem.addEventListener("click", function(){
+            window.location.href = `/product_details.html?id=${element.id}`;
+        })
     }
 }
