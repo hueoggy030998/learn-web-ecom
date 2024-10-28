@@ -206,6 +206,14 @@ function showListProducts(container, listProducts, createProductItem){
             productItem.addEventListener("click", function(){
                 window.location.href = `/product_details.html?id=${element.id}`;
             })
+            const productCartIcon = productItem.querySelector(".product-icon-item");
+            if(productCartIcon){
+                productCartIcon.addEventListener("click", function(event){
+                    event.stopPropagation();
+                    addCart(element);
+                    console.log("add cart success");
+                });
+            } 
         }
     }
 }
@@ -221,8 +229,7 @@ async function showTopCategories() {
         const data = await response.json();
         listTopCategoriesProducts = listTopCategoriesProducts.concat(data.products);
     }
-    console.log("listTopCategoriesProducts: ", listTopCategoriesProducts);
-
+    
     const numberPerPage = 4;
     let numOfTopPage = 0;
     if (listTopCategoriesProducts.length % numberPerPage === 0){

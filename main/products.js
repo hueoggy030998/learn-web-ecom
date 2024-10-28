@@ -121,6 +121,14 @@ async function showProductList(viewType, search, limit, skip, orderBy){
             productItem.addEventListener("click", function(){
                 window.location.href = `/product_details.html?id=${listProducts[i].id}`;
             })
+            const productCartIcon = productItem.querySelector(".product-icon-item");
+            if(productCartIcon){
+                productCartIcon.addEventListener("click", function(event){
+                    event.stopPropagation();
+                    addCart(listProducts[i]);
+                    console.log("add cart success");
+                });
+            } 
         }
     }
     showNumOfItems(data.total);

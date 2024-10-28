@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Product Details</title>
-    <link rel="stylesheet" href="/styles/css/product_details.css">
+    <title>Shopping cart</title>
+    <link rel="stylesheet" href="/styles/css/shopping_cart.css">
     <link rel="stylesheet" href="/styles/css/font.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,9 +35,9 @@
                     <a href="./wishlist">Wishlist</a>
                     <img src="./file icon/wishlist.png" alt="wishlist">
                 </div>
-                <a class="header-cart" href="/shopping_cart.html">
+                <div class="header-cart">
                     <img src="./file icon/cart.png" alt="cart">
-                </a>
+                </div>
             </div>
 
         </div>
@@ -63,75 +63,10 @@
     </div>
     <div class="banner-container">
         <div class="w-1168 flex-column justify-center banner">
-            <span class="josefin-sans-bold banner-title" id="banner-title">Product Details</span>
-            <span class="lato-medium banner-des" id="banner-des">Home . Pages . Product Details</span>
+            <span class="josefin-sans-bold banner-title" id="banner-title">Shopping Cart</span>
+            <span class="lato-medium banner-des" id="banner-des">Home . Pages . Shopping Cart</span>
         </div>
     </div>
-
-    <div class="w-1170 flex product-detail-general-info" id="product-detail-general-info">
-        <div class="flex product-detail-list-image" id="product-detail-list-image">
-            <div class="flex-column product-img-left">
-            </div>
-            <div class="product-img-right">
-            </div>
-
-        </div>
-        <div class="flex-column">
-            <span class="josefin-sans-semi-bold product-detail-name"></span>
-            <div class="flex align-end">
-                <div class="product-rating"></div>
-                <span class="josefin-sans num-of-review"></span>
-            </div>
-            <div class="flex josefin-sans product-detail-price">
-                <span class="product-price-sale"></span>
-                <span class="product-price"></span>
-            </div>
-            <span class="josefin-sans-semi-bold des-label">Description</span>
-            <span class="josefin-sans-semi-bold des-details"></span>
-            <div class="flex">
-                <button class="josefin-sans add-cart-btn" id="add-cart-btn">Add To Cart</button>
-                <button class="heart-btn"></button>
-            </div>
-            <div class="mt-10 flex gap-10 josefin-sans-semi-bold">
-                <span class="product-detail-label">Categories:</span>
-                <span class="product-categories-name"></span>
-            </div>
-            <div class="mt-10 flex gap-10 josefin-sans-semi-bold">
-                <span class="josefin-sans-semi-bold product-detail-label">Tags:</span>
-                <span class="active product-tags-name"></span>
-            </div>
-            <div class="mt-10 flex gap-10 align-baseline">
-                <span class="josefin-sans-semi-bold product-detail-label">Share:</span>
-                <div class="flex product-detail-social-icon">
-                    <img src="/file icon/facebook.png">
-                    <img src="/file icon/instagram.png">
-                    <img src="/file icon/twitter.png">
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="product-detail-details">
-        <div class="w-1170">
-            <div class="flex josefin-sans-semi-bold list-tab">
-                <span class="tab-active" id="des-tab">Description</span>
-                <span id="add-info-tab">Additional Info</span>
-                <span id="review-tab">Reviews</span>
-                <span id="video-tab">Video</span>
-            </div>
-            <div class="josefin-sans-semi-bold tab-details" id="tab-details">
-            </div>
-        </div>
-    </div>
-    <div class="w-1170">
-        <span class="josefin-sans-bold related-products-title">Related Products</span>
-        <div class="related-products" id="related-products">
-        </div>
-    </div>
-    <div class="brand-container">
-        <img src="/file icon/company-list.png">
-    </div>
-
     <footer class="footer">
         <div class="footer-item-1">
             <div class="footer-contact">
@@ -186,7 +121,6 @@
 
     <script src="./main/api.js"></script>
     <script src="./main/main.js"></script>
-    <script src="./main/product_details.js"></script>
 </body>
 
 </html>

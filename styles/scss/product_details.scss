@@ -326,9 +326,6 @@ a {
     margin-bottom: 13px;
 }
 
-.product-rating {
-    margin-right: 5px;
-}
 .star {
     font-size: 12px;
     display: inline-block;
@@ -354,6 +351,7 @@ a {
 .num-of-review {
     font-size: 14px;
     color: #151875;
+    margin-left: 10px;
 }
 
 .product-detail-price {
@@ -396,6 +394,7 @@ a {
     font-size: 16px;
     color: #ffffff;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .heart-btn {
@@ -478,6 +477,7 @@ a {
         background-color: #f0f6f6;
     }
     .related-product-item-name {
+        width: 75%;
         color: var(--Text, #151875);
         font-size: 16px;
     }

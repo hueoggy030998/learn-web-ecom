@@ -14,6 +14,13 @@ async function showProductDetailsPage(){
     showProductInfo(data);
     showProductTab(data);
     showRelatedProducts(data);
+
+    const addCartButton = document.getElementById("add-cart-btn");
+    addCartButton.addEventListener("click", function (event){
+        event.stopPropagation();
+        addCart(data);
+        console.log("add cart success:", data);
+    })
 }
 
 function showProductInfo(data){
@@ -201,7 +208,7 @@ async function showRelatedProducts(data){
         relatedProductItem.innerHTML +=
         `<img class="related-product-item-thumb" src="${element.thumbnail}">
                 <div class="flex justify-between align-baseline">
-                    <span class="josefin-sans-semi-bold related-product-item-name">${element.title}</span>
+                    <span class="josefin-sans-semi-bold text-ellipsis related-product-item-name">${element.title}</span>
                     <div class="product-rating">
                         ${showRating(element.rating)}
                     </div>
@@ -214,3 +221,4 @@ async function showRelatedProducts(data){
         })
     }
 }
+
