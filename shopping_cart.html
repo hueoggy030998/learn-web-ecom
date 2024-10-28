@@ -67,6 +67,24 @@
             <span class="lato-medium banner-des" id="banner-des">Home . Pages . Shopping Cart</span>
         </div>
     </div>
+
+    <div class="flex shopping-cart-container">
+        <div style="position: relative;">
+            <table>
+                <tr class="josefin-sans-bold shopping-cart-title-row">
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </table>
+            <table id="shopping-cart-list-products">
+            </table>
+            <button type="button" class="josefin-sans-semi-bold clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
+        </div>
+
+    </div>
+
     <footer class="footer">
         <div class="footer-item-1">
             <div class="footer-contact">
@@ -121,6 +139,7 @@
 
     <script src="./main/api.js"></script>
     <script src="./main/main.js"></script>
+    <script src="./main/shopping_cart.js"></script>
 </body>
 
 </html>

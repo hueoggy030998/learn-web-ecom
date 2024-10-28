@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -265,4 +266,134 @@ a {
 .banner-des {
   color: #000;
   font-size: 16px;
+}
+
+.shopping-cart-container {
+  width: 1170px;
+  margin-top: 131px;
+  margin-bottom: 145px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  width: auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Cấu hình độ rộng từng cột */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 300px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 50px;
+  text-align: right;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 150px;
+  text-align: center;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 50px;
+  text-align: right;
+}
+
+th {
+  font-size: 20px;
+  color: #1d3178;
+  border: none;
+}
+
+td {
+  border: none;
+  border-bottom: solid 1px #e1e1e4;
+  height: 100px;
+  padding: 10px;
+}
+
+.product-image {
+  position: relative;
+  width: 89px;
+  height: 93px;
+}
+.product-image .product-thumbnail {
+  width: 83px;
+  height: 87px;
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  background-color: #8a8fb9;
+}
+.product-image .product-thumb-close {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  cursor: pointer;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.product-name {
+  font-size: 14px;
+  color: #000;
+}
+
+.product-color,
+.product-size {
+  font-size: 14px;
+  color: #a1a8c1;
+}
+
+.product-price,
+.product-total {
+  font-size: 14px;
+  color: #15245e;
+}
+
+.product-quantity .decrease-button,
+.product-quantity .increase-button {
+  border: none;
+  width: 18px;
+  height: 18px;
+}
+.product-quantity input {
+  width: 35px;
+}
+
+.clear-cart-btn {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #fb2e86;
+  width: 134px;
+  height: 39px;
+  margin-top: 37px;
+  border: none;
+  border-radius: 2px;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+
+.no-data {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
 }
