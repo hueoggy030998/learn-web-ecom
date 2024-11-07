@@ -48,7 +48,7 @@
             <ul class="flex lato-regular list-menu">
                 <li><a href="./">Home</a></li>
                 <li><a href="./pages">Pages</a></li>
-                <li><a href="./products.html" class="active">Products</a></li>
+                <li><a href="./products.html">Products</a></li>
                 <li><a href="./blog">Blog</a></li>
                 <li><a href="./shop">Shop</a></li>
                 <li><a href="./contact">Contact</a></li>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <div class="flex shopping-cart-container">
+    <div class="flex align-start shopping-cart-container">
         <div style="position: relative;">
             <table>
                 <tr class="josefin-sans-bold shopping-cart-title-row">
@@ -82,7 +82,27 @@
             </table>
             <button type="button" class="josefin-sans-semi-bold clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
         </div>
-
+        <div class="flex-column">
+            <div class="flex-column align-center cart-totals-container">
+                <span class="josefin-sans-bold label-total">Cart Totals</span>
+                <div class="flex-column cart-totals">
+                    <div class="flex justify-between cart-totals-line">
+                        <span class="josefin-sans-semi-bold subtotal-label">Subtotals:</span>
+                        <span class="josefin-sans subtotal-value">£219.00</span>
+                    </div>
+                    <div class="flex justify-between cart-totals-line">
+                        <span class="josefin-sans-semi-bold total-label">Totals:</span>
+                        <span class="josefin-sans total-value">£325.00</span>
+                    </div>
+                    <div class="flex enable-calculated">
+                        <input type="checkbox">
+                        <span class="josefin-sans enable-calculated-label">Shipping & taxes calculated at
+                            checkout</span>
+                    </div>
+                    <button class="lato-bold proceed-btn">Proceed To Checkout</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="footer">
